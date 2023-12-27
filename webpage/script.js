@@ -7,14 +7,15 @@ document.addEventListener('DOMContentLoaded', function () {
     draggables.forEach(function (draggableBox) {
 
         let offsetX, offsetY, isDragging = false;
+        let anchorId = 4;
 
         // Event listener for mouse down event
         draggableBox.addEventListener('mousedown', (e) => {
             isDragging = true;
 
             // Calculate the offset between the mouse position and the box position
-            offsetX = e.clientX - draggableBox.getBoundingClientRect().left - draggableBox.getBoundingClientRect().width / 2;
-            offsetY = e.clientY - draggableBox.getBoundingClientRect().top - draggableBox.getBoundingClientRect().height / 2;
+            offsetX = e.clientX - draggableBox.getBoundingClientRect().left - draggableBox.offsetWidth / 2;
+            offsetY = e.clientY - draggableBox.getBoundingClientRect().top - draggableBox.offsetHeight / 2;
 
             // Print the offset values to the console
             console.log('OffsetX:', offsetX);
@@ -42,24 +43,25 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Dragging stopped');
         });
 
+        const anchorPointsPercentage = [
+            { x: 20, y: 35, id:0 },
+            { x: 50, y: 35, id:1 },
+            { x: 80, y: 35, id:2 },
+            { x: 20, y: 70, id:3 },
+            { x: 50, y: 70, id:4 },
+            { x: 80, y: 70, id:5 }
+        ];
         function snapToAnchor(box) {
-            const anchorPointsPercentage = [
-                { x: 20, y: 35 },
-                { x: 50, y: 35 },
-                { x: 80, y: 35 },
-                { x: 20, y: 70 },
-                { x: 50, y: 70 },
-                { x: 80, y: 70 }
-            ];
     
             // Calculate viewport dimensions
             const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
             const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
     
             // Convert percentage values to absolute coordinates
-            const anchorPoints = anchorPointsPercentage.map(({ x, y }) => ({
-                x: (x / 100) * viewportWidth + box.getBoundingClientRect().width / 2,
-                y: (y / 100) * viewportHeight + box.getBoundingClientRect().height / 2,
+            const anchorPoints = anchorPointsPercentage.map(({ x, y, id }) => ({
+                x: (x / 100) * viewportWidth + box.offsetWidth / 2,
+                y: (y / 100) * viewportHeight + box.offsetHeight / 2,
+                id: id
             }));
     
             // Find the nearest anchor point
@@ -80,7 +82,20 @@ document.addEventListener('DOMContentLoaded', function () {
             if (nearestAnchor.anchor) {
                 box.style.left = nearestAnchor.anchor.x - box.offsetWidth / 2 + 'px';
                 box.style.top = nearestAnchor.anchor.y - box.offsetHeight / 2 + 'px';
+                anchorId = nearestAnchor.anchor.id;
             }
+
+        // Add event listener for window resize
+        window.addEventListener('resize', (window) => {
+            const updatedWindowWidth = window.innerWidth || document.documentElement.clientWidth;
+            const updatedWindowHeight = window.innerHeight || document.documentElement.clientHeight;
+            console.log("resize to width ", updatedWindowWidth, " height ", updatedWindowHeight);
+            console.log("box at ", draggableBox.style.left, draggableBox.style.top);
+            console.log("anchor id is ", anchorId);
+            draggableBox.style.left = anchorPointsPercentage[anchorId].x / 100 * updatedWindowWidth + 'px';
+            draggableBox.style.top = anchorPointsPercentage[anchorId].y / 100 * updatedWindowHeight + 'px';
+            console.log("moved to ", draggableBox.style.left, draggableBox.style.top);
+        });
         }
     });
 });
