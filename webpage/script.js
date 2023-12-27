@@ -44,40 +44,40 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         const anchorPointsPercentage = [
-            { x: 20, y: 35, id:0 },
-            { x: 50, y: 35, id:1 },
-            { x: 80, y: 35, id:2 },
-            { x: 20, y: 70, id:3 },
-            { x: 50, y: 70, id:4 },
-            { x: 80, y: 70, id:5 }
+            { x: 20, y: 35, id: 0 },
+            { x: 50, y: 35, id: 1 },
+            { x: 80, y: 35, id: 2 },
+            { x: 20, y: 70, id: 3 },
+            { x: 50, y: 70, id: 4 },
+            { x: 80, y: 70, id: 5 }
         ];
         function snapToAnchor(box) {
-    
+
             // Calculate viewport dimensions
             const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
             const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    
+
             // Convert percentage values to absolute coordinates
             const anchorPoints = anchorPointsPercentage.map(({ x, y, id }) => ({
                 x: (x / 100) * viewportWidth + box.offsetWidth / 2,
                 y: (y / 100) * viewportHeight + box.offsetHeight / 2,
                 id: id
             }));
-    
+
             // Find the nearest anchor point
             const nearestAnchor = anchorPoints.reduce((nearest, anchor) => {
                 const distance = Math.hypot(
                     box.offsetLeft + box.offsetWidth / 2 - anchor.x,
                     box.offsetTop + box.offsetHeight / 2 - anchor.y
                 );
-    
+
                 if (distance < nearest.distance) {
                     return { anchor, distance };
                 }
-    
+
                 return nearest;
             }, { anchor: null, distance: Infinity });
-    
+
             // Snap to the nearest anchor point
             if (nearestAnchor.anchor) {
                 box.style.left = nearestAnchor.anchor.x - box.offsetWidth / 2 + 'px';
@@ -85,17 +85,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 anchorId = nearestAnchor.anchor.id;
             }
 
-        // Add event listener for window resize
-        window.addEventListener('resize', (window) => {
-            const updatedWindowWidth = window.innerWidth || document.documentElement.clientWidth;
-            const updatedWindowHeight = window.innerHeight || document.documentElement.clientHeight;
-            console.log("resize to width ", updatedWindowWidth, " height ", updatedWindowHeight);
-            console.log("box at ", draggableBox.style.left, draggableBox.style.top);
-            console.log("anchor id is ", anchorId);
-            draggableBox.style.left = anchorPointsPercentage[anchorId].x / 100 * updatedWindowWidth + 'px';
-            draggableBox.style.top = anchorPointsPercentage[anchorId].y / 100 * updatedWindowHeight + 'px';
-            console.log("moved to ", draggableBox.style.left, draggableBox.style.top);
-        });
+            // Add event listener for window resize
+            window.addEventListener('resize', (window) => {
+                const updatedWindowWidth = window.innerWidth || document.documentElement.clientWidth;
+                const updatedWindowHeight = window.innerHeight || document.documentElement.clientHeight;
+                console.log("resize to width ", updatedWindowWidth, " height ", updatedWindowHeight);
+                console.log("box at ", draggableBox.style.left, draggableBox.style.top);
+                console.log("anchor id is ", anchorId);
+                draggableBox.style.left = anchorPointsPercentage[anchorId].x / 100 * updatedWindowWidth + 'px';
+                draggableBox.style.top = anchorPointsPercentage[anchorId].y / 100 * updatedWindowHeight + 'px';
+                console.log("moved to ", draggableBox.style.left, draggableBox.style.top);
+            });
         }
     });
 });
