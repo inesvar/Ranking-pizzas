@@ -1,0 +1,159 @@
+4 Fromages
+
+Tomate, Mozzarella, Chèvre, Gorgonzola, Reblochon
+
+11.5€
+	
+
+Amalfi
+
+Tomate, Mozzarella, Oeuf, Lardons, Chèvre
+
+11€
+	
+
+Boss
+
+Tomate, Mozzarella, Jambon, Chorizo, Artichauts, Champignons, Poivrons
+
+11.5€
+	
+
+Capricieuse
+
+Tomate, Mozzarella, Jambon, Artichaut, Champignons, Oeuf
+
+10.5€
+	
+
+Casinese
+
+Tomate, Mozzarella, Jambon, Chorizo, Oeuf
+
+10.5€
+	
+
+Complète
+
+Tomate, Mozzarella, Jambon, Champignons, Oeuf
+
+10.5€
+	
+
+Complète sans jambon( CSJ)
+
+Tomate, Mozzarella, Champignons, Oeuf
+
+10.5€
+	
+
+Forestière
+
+Tomate, Mozzarella, Pomme de terre, Champignons, Reblochon, Lardons, Oignons confits, Crème fraîche
+
+11.5€
+	
+
+L'Ourson
+
+Base crème fraiche, Mozzarella, Chèvre, Miel, roquette
+
+10€
+	
+
+Marguerite
+
+Tomate, Mozzarella
+
+8.5€
+	
+
+Montagnarde
+
+Tomate, Mozzarella, Reblochon, Jambon de pays, Crème fraîche
+
+10.5€
+	
+
+Normande
+
+Tomate, Mozzarella, Poulet, Lardons, Oignons confits, Crème fraîche
+
+11€
+	
+
+Orientale
+
+Tomate, Mozzarella, Merguez, Oeuf, Poivrons
+
+10.5€
+	
+
+Parme
+
+Tomate, Mozzarella, Jambon de pays, Olives, Roquette
+
+10.5€
+	
+
+Pizza de semaine
+
+Sauce tomate, mozzarella, oignons, lardons, pomme de terre, raclette
+
+12€
+	
+
+Reine
+
+Tomate, Mozzarella, Jambon, Champignons
+
+10€
+	
+
+Romane
+
+Tomate, Mozzarella, Oeuf, Jambon
+
+10€
+	
+
+San Elia
+
+Base crème fraiche, Mozzarella, Pomme de terre, Chèvre, Lardons, Oignons confits
+
+11.5€
+	
+
+Texane
+
+Tomate, Mozzarella, Boeuf haché, Champignons, Oignons confits, Oeuf
+
+11.5€
+	
+
+Thon
+
+Tomate, Mozzarella, Thon, Crème fraîche, olives
+
+11€
+	
+
+V.I.P. (Very, Important, Pizza)
+
+Tomate, Mozzarella, Gorgonzola, Reblochon, Chorizo, Pomme de terre, Oeuf, Lardons, Olives
+
+12.5€
+	
+
+Vanoise
+
+Tomate, Mozzarella, Reblochon, Jambon, Oignons, Crème Fraîche, Oeuf
+
+11.5€
+	
+
+Végétarienne
+
+Tomate, Mozzarella, Artichauts, Champignons, Oignons confits, Poivrons, olives, roquette
+
+10.5€

@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #007bff;
+}
+
+p {
+    color: #333;
+}
+
+.rounded-box {
+    position: absolute;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #c8aaaa; /* Background color of the box */
+    cursor: move;
+}
+
+.box-content {
+    margin: 0; /* Remove default margin from the paragraph */
+    color: #089421; /* Text color */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Font weight */
+}
