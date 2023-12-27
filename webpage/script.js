@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
             isDragging = true;
 
             // Calculate the offset between the mouse position and the box position
-            offsetX = e.clientX - draggableBox.getBoundingClientRect().left;
-            offsetY = e.clientY - draggableBox.getBoundingClientRect().top;
+            offsetX = e.clientX - draggableBox.getBoundingClientRect().left - draggableBox.getBoundingClientRect().width / 2;
+            offsetY = e.clientY - draggableBox.getBoundingClientRect().top - draggableBox.getBoundingClientRect().height / 2;
 
             // Print the offset values to the console
             console.log('OffsetX:', offsetX);

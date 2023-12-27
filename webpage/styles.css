@@ -19,6 +19,10 @@ p {
     border-radius: 10px;
     background-color: #c8aaaa; /* Background color of the box */
     cursor: move;
+    left: 50%; /* Set initial left position to center */
+    top: 50%; /* Set initial top position to center */
+    transform: translate(-50%, -50%); /* Center the box using translate */
+    user-select: none;
 }
 
 .box-content {
