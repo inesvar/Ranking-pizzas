@@ -36,9 +36,51 @@ document.addEventListener('DOMContentLoaded', function () {
         // Event listener for mouse up event
         document.addEventListener('mouseup', () => {
             isDragging = false;
+            snapToAnchor(draggableBox);
 
             // Print a message when the dragging is stopped
             console.log('Dragging stopped');
         });
+
+        function snapToAnchor(box) {
+            const anchorPointsPercentage = [
+                { x: 20, y: 35 },
+                { x: 50, y: 35 },
+                { x: 80, y: 35 },
+                { x: 20, y: 70 },
+                { x: 50, y: 70 },
+                { x: 80, y: 70 }
+            ];
+    
+            // Calculate viewport dimensions
+            const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    
+            // Convert percentage values to absolute coordinates
+            const anchorPoints = anchorPointsPercentage.map(({ x, y }) => ({
+                x: (x / 100) * viewportWidth + box.getBoundingClientRect().width / 2,
+                y: (y / 100) * viewportHeight + box.getBoundingClientRect().height / 2,
+            }));
+    
+            // Find the nearest anchor point
+            const nearestAnchor = anchorPoints.reduce((nearest, anchor) => {
+                const distance = Math.hypot(
+                    box.offsetLeft + box.offsetWidth / 2 - anchor.x,
+                    box.offsetTop + box.offsetHeight / 2 - anchor.y
+                );
+    
+                if (distance < nearest.distance) {
+                    return { anchor, distance };
+                }
+    
+                return nearest;
+            }, { anchor: null, distance: Infinity });
+    
+            // Snap to the nearest anchor point
+            if (nearestAnchor.anchor) {
+                box.style.left = nearestAnchor.anchor.x - box.offsetWidth / 2 + 'px';
+                box.style.top = nearestAnchor.anchor.y - box.offsetHeight / 2 + 'px';
+            }
+        }
     });
 });
