@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get the draggable box element
     const draggables = document.querySelectorAll('.draggable');
 
-    draggables.forEach(function (draggableBox)  {
+    draggables.forEach(function (draggableBox) {
 
         let offsetX, offsetY, isDragging = false;
 
