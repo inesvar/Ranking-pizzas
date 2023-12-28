@@ -21,5 +21,10 @@
         <div class="draggable rounded-box">
             <p class="box-content">pen</p>
         </div>
+        {% for ingredient in ingredients %}
+        <div class="draggable rounded-box">
+            <p class="box-content">{{ingredient}}</p>
+        </div>
+        {% endfor %}
     </body>
 </html>
