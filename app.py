@@ -1,4 +1,5 @@
 import numpy as np
+from flask import Flask, render_template
 
 ingredients_connus = ["artichaut", "boeuf haché", "champignon", "chèvre",
                       "chorizo", "crème fraîche", "gorgonzola", "jambon",
@@ -18,6 +19,15 @@ tag_par_ingredient = {"artichaut": "légume", "boeuf haché": "viande", "champig
                       "poivron": "légume",
                       "pomme de terre": "calorie", "poulet": "viande", "reblochon": "fromage",
                       "roquette" : "légume", "thon": "poisson", "tomate": "pizza"}
+
+app = Flask(__name__, static_url_path='/static')
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 # PRINT
 BLEU = '\033[94m'
@@ -155,5 +165,3 @@ def main():
     [print(i) for i in ranked_pizzas]
 
     print(ingredients_connus)
-
-main()
