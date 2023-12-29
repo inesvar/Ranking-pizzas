@@ -12,7 +12,7 @@ p {
     color: #333;
 }
 
-.big-rounded-box {
+.box {
     position: absolute;
     display: inline-block;
     padding-bottom: 180px;
@@ -34,7 +34,7 @@ p {
     white-space: nowrap;
 }
 
-.rounded-box {
+.tag {
     position: absolute;
     display: inline-block;
     padding: 10px;
@@ -52,7 +52,7 @@ p {
     white-space: nowrap;
 }
 
-.box-content {
+.tag-text {
     margin: 0;
     /* Remove default margin from the paragraph */
     color: #089421;
@@ -63,7 +63,7 @@ p {
     /* Font weight */
 }
 
-.big-box-content {
+.box-title {
     margin: 0;
     /* Remove default margin from the paragraph */
     color: #438143;
