@@ -22,7 +22,8 @@ p {
     border-radius: 50px;
     background-color: rgb(112, 193, 112);
     border: 5px solid #438143;
-    cursor: move;
+    /* TODO: uncomment this in the v2 */
+    /* cursor: move; */
     left: 50%;
     /* Set initial left position to center */
     top: 70%;
