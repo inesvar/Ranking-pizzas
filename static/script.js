@@ -1,10 +1,10 @@
 const anchorPointsPercentage = [
-    { x: 20, y: 35, id: 0 },
-    { x: 50, y: 35, id: 1 },
-    { x: 80, y: 35, id: 2 },
-    { x: 20, y: 70, id: 3 },
-    { x: 50, y: 70, id: 4 },
-    { x: 80, y: 70, id: 5 }
+    { x: 20, y: 30, id: 0 },
+    { x: 50, y: 30, id: 1 },
+    { x: 80, y: 30, id: 2 },
+    { x: 20, y: 65, id: 3 },
+    { x: 50, y: 65, id: 4 },
+    { x: 80, y: 65, id: 5 }
 ];
 
 function getName(draggableTag) {

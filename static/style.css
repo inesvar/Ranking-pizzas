@@ -24,11 +24,11 @@ p {
     border: 5px solid #438143;
     /* TODO: uncomment this in the v2 */
     /* cursor: move; */
-    left: 50%;
     /* Set initial left position to center */
-    top: 70%;
+    left: 50%;
     /* Set initial top position to center */
     transform: translate(-50%, -50%);
+    top: 65%;
     /* Center the box using translate */
     user-select: none;
     white-space: nowrap;
@@ -44,7 +44,7 @@ p {
     cursor: move;
     left: 50%;
     /* Set initial left position to center */
-    top: 70%;
+    top: 65%;
     /* Set initial top position to center */
     transform: translate(-50%, -50%);
     /* Center the box using translate */
