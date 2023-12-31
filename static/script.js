@@ -35,7 +35,7 @@ function debug() {
 
 const draggables = document.querySelectorAll('.draggable');
 
-let anchorOf = new Map();
+const anchorOf = new Map();
 
 draggables.forEach(draggable => {
     anchorOf.set(draggable, undefined);
@@ -89,7 +89,7 @@ draggables.forEach((draggableTag) => {
     function unanchor(tag) {
         if (anchored) {
             console.log("unanchored");
-            var anchorId = anchorOf.get(tag);
+            let anchorId = anchorOf.get(tag);
             console.log(anchorPointsTags, "anchorPointsTags");
             console.log(anchorId, "anchorId");
             anchorPointsTags[anchorId].splice(anchorPointsTags[anchorId].indexOf(tag), 1);
@@ -147,7 +147,7 @@ draggables.forEach((draggableTag) => {
 
     // Add event listener for window resize
     window.addEventListener('resize', (window) => {
-        var anchorId = anchorOf.get(draggableTag);
+        let anchorId = anchorOf.get(draggableTag);
         if (anchorId !== undefined) {
             console.log("anchor of", getName(draggableTag), ":", anchorOf.get(draggableTag));
             replaceInAnchors(draggableTag);
@@ -164,7 +164,7 @@ draggables.forEach((draggableTag) => {
             y: (y / 100) * viewportHeight + tag.offsetHeight / 2,
             id: id
         }));
-        var anchorId = anchorOf.get(tag);
+        let anchorId = anchorOf.get(tag);
         if (anchorId !== undefined) {
             // console.log("replacing tag", getName(tag));
             let place = anchorPointsTags[anchorId].indexOf(tag);
