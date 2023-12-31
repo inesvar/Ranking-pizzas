@@ -120,16 +120,16 @@ draggables.forEach((draggableTag) => {
 
         // Convert percentage values to absolute coordinates
         const anchorPoints = anchorPointsPercentage.map(({ x, y, id }) => ({
-            x: (x / 100) * viewportWidth + tag.offsetWidth / 2,
-            y: (y / 100) * viewportHeight + tag.offsetHeight / 2,
+            x: (x / 100) * viewportWidth,
+            y: (y / 100) * viewportHeight,
             id: id
         }));
 
         // Find the nearest anchor point
         const nearestAnchor = anchorPoints.reduce((nearest, anchor) => {
             const distance = Math.hypot(
-                tag.offsetLeft + tag.offsetWidth / 2 - anchor.x,
-                tag.offsetTop + tag.offsetHeight / 2 - anchor.y
+                tag.offsetLeft - anchor.x,
+                tag.offsetTop - anchor.y
             );
 
             if (distance < nearest.distance) {
