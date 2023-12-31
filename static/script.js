@@ -38,7 +38,7 @@ const draggables = document.querySelectorAll('.draggable');
 const anchorOf = new Map();
 
 draggables.forEach(draggable => {
-    anchorOf.set(draggable, undefined);
+    anchorOf.set(draggable, 4);
 });
 
 let anchorPointsTags = { 0: [], 1: [], 2: [], 3: [], 4: [], 5: [] };
@@ -173,4 +173,17 @@ draggables.forEach((draggableTag) => {
             // console.log("position corrected", tag.style.left, tag.style.top);
         }
     }
+
+    // Calculate viewport dimensions
+    const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    // Convert percentage values to absolute coordinates
+    const anchorPoints = anchorPointsPercentage.map(({ x, y, id }) => ({
+        x: (x / 100) * viewportWidth,
+        y: (y / 100) * viewportHeight,
+        id: id
+    }));
+
+    anchorTo(draggableTag, anchorPoints[Math.floor(Math.random() * 6)]);
 });
