@@ -1,15 +1,60 @@
+const anchorPointsPercentage = [
+    { x: 20, y: 35, id: 0 },
+    { x: 50, y: 35, id: 1 },
+    { x: 80, y: 35, id: 2 },
+    { x: 20, y: 70, id: 3 },
+    { x: 50, y: 70, id: 4 },
+    { x: 80, y: 70, id: 5 }
+];
 
-// Get the draggable tag element
+function getName(draggableTag) {
+    return draggableTag.childNodes[1].childNodes[0].data;
+}
+
+function getNames(draggableTags) {
+    let names = [];
+    for (let tag of draggableTags) {
+        names.push(getName(tag));
+    }
+    return names;
+}
+
+function debug() {
+    console.log("anchorOf");
+    draggables.forEach(draggable => {
+        console.log(getName(draggable), ":", anchorOf.get(draggable))
+    });
+    console.log("anchorPointsTags");
+    console.log("0 :", getNames(anchorPointsTags[0]));
+    console.log("1 :", getNames(anchorPointsTags[1]));
+    console.log("2 :", getNames(anchorPointsTags[2]));
+    console.log("3 :", getNames(anchorPointsTags[3]));
+    console.log("4 :", getNames(anchorPointsTags[4]));
+    console.log("5 :", getNames(anchorPointsTags[5]));
+}
+
 const draggables = document.querySelectorAll('.draggable');
 
-draggables.forEach(function (draggableTag) {
+let anchorOf = new Map();
+
+draggables.forEach(draggable => {
+    anchorOf.set(draggable, undefined);
+});
+
+let anchorPointsTags = { 0: [], 1: [], 2: [], 3: [], 4: [], 5: [] };
+
+draggables.forEach((draggableTag) => {
 
     let offsetX, offsetY, isDragging = false;
-    let anchorId = 4;
+    // TODO : this variable will become useless when
+    // the tags will be correctly initialized (already in an anchor)
+    // anchored can be replaced with !isDragging
+    let anchored = false;
 
     // Event listener for mouse down event
     draggableTag.addEventListener('mousedown', (e) => {
         isDragging = true;
+        unanchor(draggableTag);
 
         // Calculate the offset between the mouse position and the tag position
         offsetX = e.clientX - draggableTag.getBoundingClientRect().left - draggableTag.offsetWidth / 2;
@@ -28,27 +73,45 @@ draggables.forEach(function (draggableTag) {
             draggableTag.style.top = e.clientY - offsetY + 'px';
 
             // Print the updated tag position to the console
-            console.log('Tag Position - Left:', draggableTag.style.left, ', Top:', draggableTag.style.top);
+            // console.log('Tag Position - Left:', draggableTag.style.left, ', Top:', draggableTag.style.top);
         }
     });
 
     // Event listener for mouse up event
     document.addEventListener('mouseup', () => {
-        isDragging = false;
-        snapToAnchor(draggableTag);
-
-        // Print a message when the dragging is stopped
-        console.log('Dragging stopped');
+        if (isDragging) {
+            isDragging = false;
+            snapToAnchor(draggableTag);
+            console.log('Dragging stopped');
+        }
     });
 
-    const anchorPointsPercentage = [
-        { x: 20, y: 35, id: 0 },
-        { x: 50, y: 35, id: 1 },
-        { x: 80, y: 35, id: 2 },
-        { x: 20, y: 70, id: 3 },
-        { x: 50, y: 70, id: 4 },
-        { x: 80, y: 70, id: 5 }
-    ];
+    function unanchor(tag) {
+        if (anchored) {
+            console.log("unanchored");
+            var anchorId = anchorOf.get(tag);
+            console.log(anchorPointsTags, "anchorPointsTags");
+            console.log(anchorId, "anchorId");
+            anchorPointsTags[anchorId].splice(anchorPointsTags[anchorId].indexOf(tag), 1);
+            anchorOf.set(tag, undefined);
+        }
+    }
+
+    function anchorTo(tag, anchor) {
+        anchorOf.set(tag, anchor.id);
+        anchorPointsTags[anchor.id].push(tag);
+        console.log("anchor:", anchorPointsTags[anchor.id].length, "tags");
+        anchored = true;
+        draggables.forEach((draggableTag) => {
+            if (anchorOf.get(draggableTag) !== undefined) {
+                if (anchorOf.get(draggableTag) !== 4) {
+                    console.log("anchor of", getName(draggableTag), ":", anchorOf.get(draggableTag));
+                }
+                replaceInAnchors(draggableTag);
+            }
+        });
+    }
+
     function snapToAnchor(tag) {
 
         // Calculate viewport dimensions
@@ -78,21 +141,36 @@ draggables.forEach(function (draggableTag) {
 
         // Snap to the nearest anchor point
         if (nearestAnchor.anchor) {
-            tag.style.left = nearestAnchor.anchor.x - tag.offsetWidth / 2 + 'px';
-            tag.style.top = nearestAnchor.anchor.y - tag.offsetHeight / 2 + 'px';
-            anchorId = nearestAnchor.anchor.id;
+            anchorTo(tag, nearestAnchor.anchor);
         }
     }
 
     // Add event listener for window resize
     window.addEventListener('resize', (window) => {
-        const updatedWindowWidth = window.innerWidth || document.documentElement.clientWidth;
-        const updatedWindowHeight = window.innerHeight || document.documentElement.clientHeight;
-        console.log("resize to width ", updatedWindowWidth, " height ", updatedWindowHeight);
-        console.log("tag at ", draggableTag.style.left, draggableTag.style.top);
-        console.log("anchor id is ", anchorId);
-        draggableTag.style.left = anchorPointsPercentage[anchorId].x / 100 * updatedWindowWidth + 'px';
-        draggableTag.style.top = anchorPointsPercentage[anchorId].y / 100 * updatedWindowHeight + 'px';
-        console.log("moved to ", draggableTag.style.left, draggableTag.style.top);
+        var anchorId = anchorOf.get(draggableTag);
+        if (anchorId !== undefined) {
+            console.log("anchor of", getName(draggableTag), ":", anchorOf.get(draggableTag));
+            replaceInAnchors(draggableTag);
+        }
     });
+
+    function replaceInAnchors(tag) {
+        // Calculate viewport dimensions
+        const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        const anchorPoints = anchorPointsPercentage.map(({ x, y, id }) => ({
+            x: (x / 100) * viewportWidth + tag.offsetWidth / 2,
+            y: (y / 100) * viewportHeight + tag.offsetHeight / 2,
+            id: id
+        }));
+        var anchorId = anchorOf.get(tag);
+        if (anchorId !== undefined) {
+            // console.log("replacing tag", getName(tag));
+            let place = anchorPointsTags[anchorId].indexOf(tag);
+            tag.style.left = anchorPoints[anchorId].x - tag.offsetWidth / 2 + 'px';
+            tag.style.top = anchorPoints[anchorId].y - 2.5 * tag.offsetHeight / 2 + place * tag.offsetHeight + 'px';
+            // console.log("position corrected", tag.style.left, tag.style.top);
+        }
+    }
 });
