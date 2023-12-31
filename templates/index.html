@@ -13,8 +13,8 @@
         <div class="box">
             <p class="box-title">pineapple pen</p>
         </div>
-        {% for ingredient in ingredients %}
-        <div class="draggable tag">
+        {% for ingredient, classe in ingredients.items() %}
+        <div class="draggable tag {{classe}}">
             <p class="tag-text">{{ingredient}}</p>
         </div>
         {% endfor %}

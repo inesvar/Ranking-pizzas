@@ -25,7 +25,7 @@ app = Flask(__name__, static_url_path='/static')
 
 @app.route('/')
 def index():
-    return render_template('index.html', ingredients=known_ingredients)
+    return render_template('index.html', ingredients=tag_of_ingredient)
 
 
 if __name__ == '__main__':

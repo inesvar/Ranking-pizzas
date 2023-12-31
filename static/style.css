@@ -20,18 +20,19 @@ p {
     padding-left: 50px;
     padding-right: 50px;
     border-radius: 50px;
-    background-color: rgb(112, 193, 112);
     border: 5px solid #438143;
     /* TODO: uncomment this in the v2 */
     /* cursor: move; */
     /* Set initial left position to center */
     left: 50%;
     /* Set initial top position to center */
-    transform: translate(-50%, -50%);
     top: 65%;
     /* Center the box using translate */
+    transform: translate(-50%, -50%);
     user-select: none;
     white-space: nowrap;
+    /* Text color */
+    color: #438143;
 }
 
 .tag {
@@ -39,37 +40,65 @@ p {
     display: inline-block;
     padding: 10px;
     border-radius: 10px;
-    background-color: #c8aaaa;
-    /* Background color of the box */
     cursor: move;
-    left: 50%;
     /* Set initial left position to center */
     top: 65%;
     /* Set initial top position to center */
-    transform: translate(-50%, -50%);
+    top: 70%;
     /* Center the box using translate */
+    transform: translate(-50%, -50%);
     user-select: none;
     white-space: nowrap;
 }
 
 .tag-text {
-    margin: 0;
     /* Remove default margin from the paragraph */
-    color: #089421;
-    /* Text color */
-    font-size: 16px;
+    margin: 0;
     /* Font size */
-    font-weight: bold;
+    font-size: 16px;
     /* Font weight */
+    font-weight: bold;
+    /* Text color */
+    color: inherit;
 }
 
 .box-title {
-    margin: 0;
     /* Remove default margin from the paragraph */
-    color: #438143;
+    margin: 0;
     /* Text color */
-    font-size: 22px;
+    color: inherit;
     /* Font size */
-    font-weight: bold;
+    font-size: 22px;
     /* Font weight */
+    font-weight: bold;
+}
+
+.viande {
+    background-color:#cc5d75;
+    color: #ffffff;
+}
+
+.légume {
+    background-color: #5cc563;
+    color: #ffffff;
+}
+
+.poisson {
+    background-color: #755dd2;
+    color: #ffffff;
+}
+
+.fromage {
+    background-color: #d2c66d;
+    color: #ffffff;
+}
+
+.calorie {
+    background-color: #cf69d9;
+    color: #ffffff;
+}
+
+.pizza {
+    background-color: #a19f96;
+    color: #ffffff;
 }
