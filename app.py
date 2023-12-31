@@ -8,17 +8,17 @@ known_ingredients = ["artichaut", "boeuf haché", "champignon", "chèvre",
                      "pomme de terre", "poulet", "reblochon", "roquette", "thon", "tomate"]
 
 ingredient_tags = ["légume", "viande",
-                   "poisson", "fromage", "calorie", "pizza"]
+                   "poisson", "fromage", "calorie"]
 
-tag_of_ingredient = {"artichaut": "légume", "boeuf haché": "viande", "champignon": "pizza",
+tag_of_ingredient = {"artichaut": "légume", "boeuf haché": "viande", "champignon": "légume",
                      "chèvre": "fromage", "chorizo": "viande", "crème fraîche": "calorie",
                      "gorgonzola": "fromage", "jambon": "viande",
                      "jambon de pays": "viande", "lardon": "viande", "merguez": "viande", "miel": "calorie",
-                     "mozzarella": "pizza", "oeuf": "calorie",
-                     "oignon": "légume", "oignon confit": "légume", "olive": "pizza",
+                     "mozzarella": "fromage", "oeuf": "calorie",
+                     "oignon": "légume", "oignon confit": "légume", "olive": "légume",
                      "poivron": "légume",
                      "pomme de terre": "calorie", "poulet": "viande", "reblochon": "fromage",
-                     "roquette": "légume", "thon": "poisson", "tomate": "pizza"}
+                     "roquette": "légume", "thon": "poisson", "tomate": "légume"}
 
 app = Flask(__name__, static_url_path='/static')
 
