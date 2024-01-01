@@ -1,38 +1,79 @@
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin: 20px;
+    margin: 0px;
     text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
 }
 
-h1 {
-    color: #007bff;
-}
-
-p {
-    color: #333;
+.container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    padding: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 80%;
+    height: 55%;
 }
 
 .box {
-    position: absolute;
-    display: inline-block;
-    padding-bottom: 180px;
     padding-top: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
+    /* height: 100%; */
     border-radius: 50px;
-    border: 5px solid #438143;
     /* TODO: uncomment this in the v2 */
     /* cursor: move; */
-    /* Set initial left position to center */
-    left: 50%;
-    /* Set initial top position to center */
-    top: 65%;
-    /* Center the box using translate */
-    transform: translate(-50%, -50%);
     user-select: none;
     white-space: nowrap;
+    flex: 1;
+}
+
+.miam {
+    --accenthsl: 0, 83%, 47%;
+    --accenthsldark: 0, 83%, 37%;
+    border: 5px solid hsla(var(--accenthsldark), 0.7);
     /* Text color */
-    color: #438143;
+    color: hsla(var(--accenthsldark), 0.7);
+    background: hsla(var(--accenthsl), 0.2);
+}
+
+.bon {
+    --accenthsl: 72, 83%, 47%;
+    --accenthsldark: 72, 83%, 37%;
+    border: 5px solid hsla(var(--accenthsldark), 0.7);
+    /* Text color */
+    color: hsla(var(--accenthsldark), 0.7);
+    background: hsla(var(--accenthsl), 0.2);
+}
+
+.pabon {
+    --accenthsl: 144, 83%, 47%;
+    --accenthsldark: 144, 83%, 37%;
+    border: 5px solid hsla(var(--accenthsldark), 0.7);
+    /* Text color */
+    color: hsla(var(--accenthsldark), 0.7);
+    background: hsla(var(--accenthsl), 0.2);
+}
+
+.beurk {
+    --accenthsl: 216, 83%, 47%;
+    --accenthsldark: 216, 83%, 37%;
+    border: 5px solid hsla(var(--accenthsldark), 0.7);
+    /* Text color */
+    color: hsla(var(--accenthsldark), 0.7);
+    background: hsla(var(--accenthsl), 0.2);
+}
+
+.résultat {
+    --accenthsl: 288, 83%, 47%;
+    --accenthsldark: 288, 83%, 37%;
+    border: 5px solid hsla(var(--accenthsldark), 0.7);
+    /* Text color */
+    color: hsla(var(--accenthsldark), 0.7);
+    background: hsla(var(--accenthsl), 0.2);
+    width: 80%;
 }
 
 .tag {
@@ -42,20 +83,21 @@ p {
     border-radius: 10px;
     cursor: move;
     /* Set initial left position to center */
-    top: 65%;
+    left: 65%;
     /* Set initial top position to center */
     top: 70%;
     /* Center the box using translate */
     transform: translate(-50%, -50%);
     user-select: none;
     white-space: nowrap;
+    transition: 0.05s;
 }
 
 .tag-text {
     /* Remove default margin from the paragraph */
     margin: 0;
     /* Font size */
-    font-size: 16px;
+    font-size: 14px;
     /* Font weight */
     font-weight: bold;
     /* Text color */
@@ -74,7 +116,7 @@ p {
 }
 
 .viande {
-    background-color:#cc5d75;
+    background-color: #cc5d75;
     color: #ffffff;
 }
 

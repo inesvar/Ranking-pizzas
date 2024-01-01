@@ -1,11 +1,12 @@
 const anchorPointsPercentage = [
-    { x: 20, y: 30, id: 0 },
-    { x: 50, y: 30, id: 1 },
-    { x: 80, y: 30, id: 2 },
-    { x: 20, y: 65, id: 3 },
-    { x: 50, y: 65, id: 4 },
-    { x: 80, y: 65, id: 5 }
+    { x: 10, y: 15, id: 0 },
+    { x: 30, y: 15, id: 1 },
+    { x: 50, y: 15, id: 2 },
+    { x: 70, y: 15, id: 3 },
+    { x: 90, y: 15, id: 4 }
 ];
+
+const nbAnchors = 5;
 
 function getName(draggableTag) {
     return draggableTag.childNodes[1].childNodes[0].data;
@@ -41,7 +42,7 @@ draggables.forEach(draggable => {
     anchorOf.set(draggable, 4);
 });
 
-let anchorPointsTags = { 0: [], 1: [], 2: [], 3: [], 4: [], 5: [] };
+let anchorPointsTags = { 0: [], 1: [], 2: [], 3: [], 4: [] };
 
 draggables.forEach((draggableTag) => {
 
@@ -104,9 +105,6 @@ draggables.forEach((draggableTag) => {
         anchored = true;
         draggables.forEach((draggableTag) => {
             if (anchorOf.get(draggableTag) !== undefined) {
-                if (anchorOf.get(draggableTag) !== 4) {
-                    console.log("anchor of", getName(draggableTag), ":", anchorOf.get(draggableTag));
-                }
                 replaceInAnchors(draggableTag);
             }
         });
@@ -185,5 +183,6 @@ draggables.forEach((draggableTag) => {
         id: id
     }));
 
-    anchorTo(draggableTag, anchorPoints[Math.floor(Math.random() * 6)]);
+    anchorTo(draggableTag, anchorPoints[Math.floor(Math.random() * nbAnchors)]);
+    // anchorTo(draggableTag, anchorPoints[4]);
 });

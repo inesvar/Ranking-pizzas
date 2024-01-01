@@ -5,18 +5,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet"
             href="{{ url_for('static', filename='style.css') }}">
-        <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+        <script defer
+            src="{{ url_for('static', filename='script.js') }}"></script>
 
         <title>Minimal HTML Page</title>
     </head>
-    <body>
-        <div class="box">
-            <p class="box-title">pineapple pen</p>
+    <body><div class="container">
+            <div class="box beurk">
+                <p class="box-title">beurk</p>
+            </div>
+            <div class="box pabon">
+                <p class="box-title">pabon</p>
+            </div>
+            <div class="box bon">
+                <p class="box-title">bon</p>
+            </div>
+            <div class="box miam">
+                <p class="box-title">miam</p>
+            </div>
         </div>
         {% for ingredient, classe in ingredients.items() %}
         <div class="draggable tag {{classe}}">
             <p class="tag-text">{{ingredient}}</p>
         </div>
         {% endfor %}
+        <div class="box résultat">
+            <p class="box-title">pizzas</p>
+        </div>
     </body>
 </html>
