@@ -3,7 +3,7 @@ const anchorPointsPercentage = [
     { x: 30, y: 15, id: 1 },
     { x: 50, y: 15, id: 2 },
     { x: 70, y: 15, id: 3 },
-    { x: 90, y: 15, id: 4 }
+    { x: 90, y: 8, id: 4 }
 ];
 
 const nbAnchors = 5;
@@ -202,12 +202,34 @@ function computeBestPizza() {
         },
         body: JSON.stringify(anchorPointsTagsNames),
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-        // Handle the response from the server as needed
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // Handle the response from the server as needed
+            const pizzaContainer = document.getElementById("pizza-container");
+
+            pizzaContainer.innerHTML = '';
+
+            for (let i = 0; i < 7; i++) {
+                const pizzaBlock = document.createElement("div");
+                pizzaBlock.className = "pizza-block";
+
+                const pizzaNameElement = document.createElement("p");
+                pizzaNameElement.className = "pizza-name";
+
+                const pizzaDescriptionElement = document.createElement("p");
+                pizzaDescriptionElement.className = "pizza-description";
+
+                pizzaNameElement.innerText = `#${i + 1} ${data["message"][i][0]}`;
+                pizzaDescriptionElement.innerText = data["message"][i][1];
+
+                pizzaBlock.appendChild(pizzaNameElement);
+                pizzaBlock.appendChild(pizzaDescriptionElement);
+
+                pizzaContainer.appendChild(pizzaBlock);
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }

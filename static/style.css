@@ -115,6 +115,25 @@ body {
     font-weight: bold;
 }
 
+.pizza-block {
+    padding-left: 40px;
+    text-align: left;
+    color: #000;
+}
+
+.pizza-name {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-weight: bold;
+}
+
+.pizza-description {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 32px;
+    line-height: 0.5em;
+}
+
 .viande {
     background-color: #cc5d75;
     color: #ffffff;

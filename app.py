@@ -64,6 +64,9 @@ class ingredient:
     def __str__(self):
         return self.couleur + self.nom + PAS_COULEUR
 
+    def to_string(self):
+        return self.nom
+
 
 class pizza:
     def __init__(self, nom, ingredients):
@@ -95,6 +98,10 @@ class pizza:
                                     for ingredient in self.tags[tag]])
                 string += "     "
         return string + "\n"
+
+    def to_string(self):
+        return [self.nom, " ".join([ingredient.to_string()
+                                    for ingredient in self.ingredients])]
 
     def contient(self, nom):
         for i in self.ingredients:
@@ -153,13 +160,17 @@ def load_pizza_file():
 def main():
     pass
 
+
 def compute(miam, bon, pabon, beurk):
     pizzas = load_pizza_file()
     scores = [pizza.get_score(miam, bon, pabon, beurk) for pizza in pizzas]
-    ordre = np.argsort(scores)
-    ranked_pizzas = [(pizzas[i], scores[i]) for i in ordre]
-    [print(i[0], ">> Score :", i[1], "\n") for i in ranked_pizzas]
-    return ranked_pizzas
+    ordre = np.argsort(scores)[::-1]
+    ranked_pizzas = [pizzas[i].to_string()
+                     for i in ordre]
+
+    [print(i) for i in ranked_pizzas]
+    return ranked_pizzas[:7]
+
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -174,10 +185,9 @@ def receive_data():
     data = request.json  # Assuming data is sent in JSON format
     print("data", data)
     best_pizzas = compute(data["3"], data["2"], data["1"], data["0"])
-    result = {'status': 'success', 'message': 'Data received successfully'}
+    result = {'status': 'success', 'message': best_pizzas}
     return jsonify(result)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
