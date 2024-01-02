@@ -1,5 +1,5 @@
 import numpy as np
-from flask import Flask, render_template
+from flask import Flask, jsonify, render_template, request
 
 known_ingredients = ["artichaut", "boeuf haché", "champignon", "chèvre",
                      "chorizo", "crème fraîche", "gorgonzola", "jambon",
@@ -19,17 +19,6 @@ tag_of_ingredient = {"artichaut": "légume", "boeuf haché": "viande", "champign
                      "poivron": "légume",
                      "pomme de terre": "calorie", "poulet": "viande", "reblochon": "fromage",
                      "roquette": "légume", "thon": "poisson", "tomate": "légume"}
-
-app = Flask(__name__, static_url_path='/static')
-
-
-@app.route('/')
-def index():
-    return render_template('index.html', ingredients=tag_of_ingredient)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
 
 # PRINT
 BLEU = '\033[94m'
@@ -162,14 +151,33 @@ def load_pizza_file():
 
 
 def main():
-    pizzas = load_pizza_file()
-    #  + [i.nom for i in pizza.tags["viande"]]
-    scores = [pizza.get_score([], [], ["champignon", "oeuf", "lardon",
-                              "artichaut", "olive", "poivron"], []) for pizza in pizzas]
-    print("Scores : ", scores)
-    ordre = np.argsort(scores)
-    print("Ordre : ", ordre)
-    ranked_pizzas = [pizzas[i] for i in ordre]
-    [print(i) for i in ranked_pizzas]
+    pass
 
-    print(known_ingredients)
+def compute(miam, bon, pabon, beurk):
+    pizzas = load_pizza_file()
+    scores = [pizza.get_score(miam, bon, pabon, beurk) for pizza in pizzas]
+    ordre = np.argsort(scores)
+    ranked_pizzas = [(pizzas[i], scores[i]) for i in ordre]
+    [print(i[0], ">> Score :", i[1], "\n") for i in ranked_pizzas]
+    return ranked_pizzas
+
+app = Flask(__name__, static_url_path='/static')
+
+
+@app.route('/')
+def index():
+    return render_template('index.html', ingredients=tag_of_ingredient)
+
+
+@app.route('/receive_data', methods=['POST'])
+def receive_data():
+    data = request.json  # Assuming data is sent in JSON format
+    print("data", data)
+    best_pizzas = compute(data["3"], data["2"], data["1"], data["0"])
+    result = {'status': 'success', 'message': 'Data received successfully'}
+    return jsonify(result)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+    

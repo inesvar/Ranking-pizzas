@@ -108,6 +108,7 @@ draggables.forEach((draggableTag) => {
                 replaceInAnchors(draggableTag);
             }
         });
+        computeBestPizza();
     }
 
     function snapToAnchor(tag) {
@@ -183,6 +184,30 @@ draggables.forEach((draggableTag) => {
         id: id
     }));
 
-    anchorTo(draggableTag, anchorPoints[Math.floor(Math.random() * nbAnchors)]);
-    // anchorTo(draggableTag, anchorPoints[4]);
+    // anchorTo(draggableTag, anchorPoints[Math.floor(Math.random() * nbAnchors)]);
+    anchorTo(draggableTag, anchorPoints[4]);
 });
+
+function computeBestPizza() {
+    const anchorPointsTagsNames = {};
+
+    for (let anchorId in anchorPointsTags) {
+        anchorPointsTagsNames[anchorId] = getNames(anchorPointsTags[anchorId]);
+    }
+
+    fetch('/receive_data', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(anchorPointsTagsNames),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        // Handle the response from the server as needed
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
