@@ -1,159 +1,236 @@
-4 Fromages
+Pizza Reine
 
-Tomate, Mozzarella, Chèvre, Gorgonzola, Reblochon
+Base sauce tomate, fromage, jambon, champignon, persillade
 
-11.5€
-	
+14,80 €
 
-Amalfi
 
-Tomate, Mozzarella, Oeuf, Lardons, Chèvre
+Pizza savoyarde
 
-11€
-	
+Base crème fraîche, fromage, oignon, pomme de terre, lardon, Reblochon
 
-Boss
+15,50 €
 
-Tomate, Mozzarella, Jambon, Chorizo, Artichauts, Champignons, Poivrons
 
-11.5€
-	
+Pizza formaggio
 
-Capricieuse
+Base sauce tomate, fromage, Taleggio, chèvre, Gorgonzola, ciboulette
 
-Tomate, Mozzarella, Jambon, Artichaut, Champignons, Oeuf
+16,30 €
 
-10.5€
-	
 
-Casinese
+Pizza chèvre miel
 
-Tomate, Mozzarella, Jambon, Chorizo, Oeuf
+Base sauce tomate, fromage, fromage de chèvre, miel
 
-10.5€
-	
+14,30 €
 
-Complète
 
-Tomate, Mozzarella, Jambon, Champignons, Oeuf
+Pizza campione
 
-10.5€
-	
+Base sauce tomate, fromage, viande hachée, merguez, oignon, œuf, sauce marocaine
 
-Complète sans jambon( CSJ)
+16,20 €
 
-Tomate, Mozzarella, Champignons, Oeuf
 
-10.5€
-	
+Pizza montagnarde
 
-Forestière
+Base sauce tomate, jambon blanc, coppa, bacon, raclette, ciboulette, pomme de terre
 
-Tomate, Mozzarella, Pomme de terre, Champignons, Reblochon, Lardons, Oignons confits, Crème fraîche
+17,00 €
 
-11.5€
-	
 
-L'Ourson
+Pizza Genovese
 
-Base crème fraiche, Mozzarella, Chèvre, Miel, roquette
+Base sauce tomate, fromage, coppa, chèvre, persillade
 
-10€
-	
+16,50 €
 
-Marguerite
 
-Tomate, Mozzarella
+Pizza calzone soufflée
 
-8.5€
-	
+Base sauce tomate, fromage, jambon, œuf, salade verte
 
-Montagnarde
+15,40 €
 
-Tomate, Mozzarella, Reblochon, Jambon de pays, Crème fraîche
 
-10.5€
-	
+Pizza cesarea
 
-Normande
+Base sauce tomate, fromage, poulet, poireau, crème fraîche, ciboulette
 
-Tomate, Mozzarella, Poulet, Lardons, Oignons confits, Crème fraîche
+15,20 €
 
-11€
-	
 
-Orientale
+Pizza Vésuve
 
-Tomate, Mozzarella, Merguez, Oeuf, Poivrons
+Base sauce tomate, fromage, jambon
 
-10.5€
-	
+13,20 €
 
-Parme
 
-Tomate, Mozzarella, Jambon de pays, Olives, Roquette
+Pizza texane
 
-10.5€
-	
+Base sauce tomate, fromage, viande hachée, bacon, poivron, œuf, sauce barbecue
 
-Pizza de semaine
+16,20 €
 
-Sauce tomate, mozzarella, oignons, lardons, pomme de terre, raclette
 
-12€
-	
+Pizza riosmare
 
-Reine
+Base sauce tomate, fromage, saumon fumé, crème fraîche, aneth
 
-Tomate, Mozzarella, Jambon, Champignons
+17,50 €
 
-10€
-	
 
-Romane
+Pizza parmiggiano
 
-Tomate, Mozzarella, Oeuf, Jambon
+Base sauce tomate, fromage, jambon de Parme, Parmesan, salade verte
 
-10€
-	
+17,50 €
 
-San Elia
 
-Base crème fraiche, Mozzarella, Pomme de terre, Chèvre, Lardons, Oignons confits
+Pizza Sardaigne
 
-11.5€
-	
+Base sauce tomate, fromage, jambon, chorizo
 
-Texane
+15,40 €
 
-Tomate, Mozzarella, Boeuf haché, Champignons, Oignons confits, Oeuf
 
-11.5€
-	
+Pizza porcini
 
-Thon
+Base crème fraîche, champignon, fromage, oignon, lardon, ciboulette
 
-Tomate, Mozzarella, Thon, Crème fraîche, olives
+15,20 €
 
-11€
-	
 
-V.I.P. (Very, Important, Pizza)
+Pizza primavera
 
-Tomate, Mozzarella, Gorgonzola, Reblochon, Chorizo, Pomme de terre, Oeuf, Lardons, Olives
+Base sauce tomate, fromage, origan
 
-12.5€
-	
+9,70 €
 
-Vanoise
 
-Tomate, Mozzarella, Reblochon, Jambon, Oignons, Crème Fraîche, Oeuf
+Pizza capricoppa
 
-11.5€
-	
+Base sauce tomate, fromage, coppa, champignon, crème fraîche, ciboulette
 
-Végétarienne
+15,20 €
 
-Tomate, Mozzarella, Artichauts, Champignons, Oignons confits, Poivrons, olives, roquette
 
-10.5€
+Pizza kebab
+
+Base crème, viande kebab, oignon, tomate fraîche, salade, sauce kebab
+
+16,80 €
+
+
+Pizza farcito soufflée
+
+Base sauce tomate, fromage, champignon, crème fraîche, jambon, œuf, salade
+
+15,70 €
+
+
+Pizza jardinière
+
+Base sauce tomate, fromage, poivron, oignon, courgette, persillade
+
+14,30 €
+
+
+Pizza il sole
+
+Base sauce tomate, fromage, poulet, tomate fraîche, ananas
+
+14,80 €
+
+
+Pizza napolitaine
+
+Base sauce tomate, fromage, câpres, olive, anchois
+
+14,30 €
+
+
+Pizza pescatore
+
+Base sauce tomate, fromage, Saint-Jacques, crevette, crème fraîche, ciboulette
+
+17,50 €
+
+
+Pizza normande
+
+Base crème moutardée, fromage, andouille, champignon, persillade, Camembert
+
+16,20 €
+
+
+Pizza frutti di mare
+
+Base sauce tomate, fromage, cocktail de fruits de mer, persillade
+
+16,30 €
+
+
+Pizza ligure
+
+Base sauce tomate, fromage, gésiers, magret, crème fraîche, ciboulette
+
+16,30 €
+
+
+Pizza angevine
+
+Base crème moutardée, fromage, rillaud, pomme de terre, oignon
+
+16,20 €
+
+
+Pizza Abruzzes
+
+Base sauce tomate, fromage, jambon, oignon, câpres, œuf
+
+14,30 €
+
+
+Pizza romana
+
+Base sauce tomate, fromage, thon, chorizo, persillade
+
+15,40 €
+
+
+Pizza asparagi
+
+Base crème fraîche, fenouil, fromage, asperge, jambon de Parme, tomate fraîche, ciboulette
+
+15,70 €
+
+
+Pizza bénésie
+
+Base crème fraîche, fromage, coppa, carotte, épinards, poireaux, ciboulette
+
+15,70 €
+
+
+Pizza Vénétie
+
+Base sauce tomate, fromage, jambon, chorizo, artichaut
+
+15,20 €
+
+
+Pizza provençale
+
+Base sauce tomate, fromage, oignon, persillade, anchois
+
+14,30 €
+
+
+Pizza  margherita
+
+Base sauce tomate, fromage, mozzarella, dés de tomate, basilic frais
+
+15,40 €
