@@ -1,17 +1,16 @@
 from ingredients import *
 import numpy as np
 
-
 # PRINT
-BLEU = '\033[94m'
-VERT = '\033[92m'
-JAUNE = '\033[93m'
-ORANGE = '\033[38;5;172m'
-ROUGE = '\033[91m'
-GRAS = '\033[1m'
-SOULIGNE = '\033[4m'
-FIN = '\033[0m'
-PAS_COULEUR = '\x1b[0m'
+BLEU = "\033[94m"
+VERT = "\033[92m"
+JAUNE = "\033[93m"
+ORANGE = "\033[38;5;172m"
+ROUGE = "\033[91m"
+GRAS = "\033[1m"
+SOULIGNE = "\033[4m"
+FIN = "\033[0m"
+PAS_COULEUR = "\x1b[0m"
 
 # CATEGORIES
 AVEC = 0
@@ -76,14 +75,17 @@ class pizza:
         for tag in self.tags.keys():
             if self.tags[tag]:
                 string += "#" + tag + " : "
-                string += ", ".join([ingredient.__str__()
-                                    for ingredient in self.tags[tag]])
+                string += ", ".join(
+                    [ingredient.__str__() for ingredient in self.tags[tag]]
+                )
                 string += "     "
         return string + "\n"
 
     def to_string(self):
-        return [self.nom, " ".join([ingredient.to_string()
-                                    for ingredient in self.ingredients])]
+        return [
+            self.nom,
+            " ".join([ingredient.to_string() for ingredient in self.ingredients]),
+        ]
 
     def contient(self, nom):
         for i in self.ingredients:
@@ -138,16 +140,11 @@ def load_pizza_file():
     return pizzas
 
 
-def main():
-    pass
-
-
 def compute_best_pizzas(miam, bon, pabon, beurk):
     pizzas = load_pizza_file()
     scores = [pizza.get_score(miam, bon, pabon, beurk) for pizza in pizzas]
     ordre = np.argsort(scores)[::-1]
-    ranked_pizzas = [pizzas[i].to_string()
-                     for i in ordre]
+    ranked_pizzas = [pizzas[i].to_string() for i in ordre]
 
     [print(i) for i in ranked_pizzas]
     return ranked_pizzas[:7]
