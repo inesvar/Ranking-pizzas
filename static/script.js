@@ -210,7 +210,7 @@ function computeBestPizza() {
 
             pizzaContainer.innerHTML = '';
 
-            for (let i = 0; i < 7; i++) {
+            for (let i = 0; i < data["message"].length; i++) {
                 const pizzaBlock = document.createElement("div");
                 pizzaBlock.className = "pizza-block";
 
