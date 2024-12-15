@@ -63,7 +63,8 @@ class PizzaRank:
         order = np.argsort(scores)[::-1]
         self.ranking = [self.pizzas[i].to_string() for i in order]
 
-        [print(i) for i in self.ranking]
+        [print(i[0], end=" ") for i in self.ranking]
+        print("\n\n\n")
         return self.ranking
 
     def get_tagged_ingredients(self) -> dict[str, str]:
