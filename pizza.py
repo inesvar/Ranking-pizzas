@@ -1,4 +1,5 @@
 from enum import Enum
+from stupidlogger import debug
 
 BLUE = "\033[94m"
 GREEN = "\033[92m"
@@ -50,13 +51,13 @@ class Pizza:
 
     def get_score(self, qualifier_of_ingredient: dict[str, str]) -> int:
         score = 0
-        print(self.name, end=":")
+        debug(self.name, end=":")
         for i in self.ingredients:
             if i not in qualifier_of_ingredient:
                 continue
             ingredient_qualifier = IngredientQualifier(qualifier_of_ingredient[i])
             score += ingredient_qualifier.get_score()
-            print(ingredient_qualifier.get_print_color() + i + RESET, end=" ")
-        print()
+            debug(ingredient_qualifier.get_print_color() + i + RESET, end=" ")
+        debug()
 
         return score

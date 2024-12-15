@@ -1,4 +1,5 @@
 from pizza import Pizza, RED, BOLD, RESET
+from stupidlogger import debug, warn, info
 import numpy as np
 from json import load
 
@@ -45,11 +46,7 @@ class PizzaRank:
                 if i in tagged_ingredients.keys():
                     self.tagged_ingredients[i] = tagged_ingredients[i]
                 else:
-                    print(
-                        RED + BOLD + "/!\ ",
-                        i,
-                        "n'est pas un ingrédient connu" + RESET,
-                    )
+                    warn("/!\ ", i, "n'est pas un ingrédient connu")
                     self.tagged_ingredients[i] = "inconnu"
         self.tagged_ingredients = dict(
             {
@@ -69,15 +66,15 @@ class PizzaRank:
             if qualifier != "4"
             for ingredient in ingredients
         }
-        print("qualifiers of ingredients", self.qualifier_of_ingredient)
+        info("qualifiers of ingredients", self.qualifier_of_ingredient)
         negative_scores = [
             -pizza.get_score(self.qualifier_of_ingredient) for pizza in self.pizzas
         ]
         descending_order = np.argsort(negative_scores)
         self.ranking = [self.pizzas[i].to_string() for i in descending_order]
 
-        [print(i[0], end=" ") for i in self.ranking]
-        print("\n\n\n")
+        [debug(i[0], end=" ") for i in self.ranking]
+        debug("\n\n\n")
         return self.ranking
 
     def get_tagged_ingredients(self) -> dict[str, str]:
