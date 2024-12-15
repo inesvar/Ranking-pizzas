@@ -6,6 +6,8 @@ body {
     display: flex;
     flex-direction: row;
     column-gap: 20px;
+    user-select: none;
+    white-space: nowrap;
 }
 
 .main-container {
@@ -17,8 +19,13 @@ body {
 
 .secondary-container {
     display: flex;
-    flex-direction: column;
-    flex: 1;
+    flex-direction: row;
+    column-gap: 5px;
+    row-gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: fit-content;
+    padding: 10px 5px; /* top/bottom right/left */
 }
 
 .qualifier-container {
@@ -31,8 +38,6 @@ body {
 .box {
     border-radius: 50px;
     border: 5px solid;
-    user-select: none;
-    white-space: nowrap;
     flex: 1;
 }
 
@@ -40,32 +45,22 @@ body {
     color: inherit;
     font-size: 22px;
     font-weight: bold;
+    flex-basis: 100%;
 }
 
 .tag {
-    position: absolute;
-    display: inline-block;
+    width: fit-content;
     padding: 10px;
     border-radius: 10px;
-    cursor: move;
-    /* Set initial left position to center */
-    left: 65%;
-    /* Set initial top position to center */
-    top: 70%;
-    /* Center the box using translate */
-    transform: translate(-50%, -50%);
-    user-select: none;
-    white-space: nowrap;
-    transition: 0.05s;
+    cursor: pointer;
+    transition: 0.05s; /* snap shouldn't be instantaneous */
 }
 
 .tag-text {
-    /* Remove default margin from the paragraph */
+    /* there's default margin on the top and bottom,
+     we use padding on the 4 sides instead */
     margin: 0;
-    /* Font size */
     font-size: 14px;
-    /* Font weight */
     font-weight: bold;
-    /* Text color */
     color: inherit;
 }
