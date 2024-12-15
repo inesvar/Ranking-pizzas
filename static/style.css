@@ -1,85 +1,45 @@
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin: 0px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.container {
+    padding: 8px;
+    margin: 0px;
     display: flex;
     flex-direction: row;
     column-gap: 20px;
-    padding: 0px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 80%;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    flex: 4;
+}
+
+.secondary-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.qualifier-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
     height: 50vh;
 }
 
-.ingredients-container {
-    display: flex;
-    flex-direction: column;
-    column-gap: 20px;
-    padding: 0px;
-    width: 20vh;
-}
-
 .box {
-    padding: 20px;
-    /* height: 100%; */
     border-radius: 50px;
-    /* TODO: uncomment this in the v2 */
-    /* cursor: move; */
+    border: 5px solid;
     user-select: none;
     white-space: nowrap;
     flex: 1;
 }
 
-.miam {
-    --accenthsl: 0, 83%, 47%;
-    --accenthsldark: 0, 83%, 37%;
-    border: 5px solid hsla(var(--accenthsldark), 0.7);
-    /* Text color */
-    color: hsla(var(--accenthsldark), 0.7);
-    background: hsla(var(--accenthsl), 0.2);
-}
-
-.bon {
-    --accenthsl: 72, 83%, 47%;
-    --accenthsldark: 72, 83%, 37%;
-    border: 5px solid hsla(var(--accenthsldark), 0.7);
-    /* Text color */
-    color: hsla(var(--accenthsldark), 0.7);
-    background: hsla(var(--accenthsl), 0.2);
-}
-
-.pabon {
-    --accenthsl: 144, 83%, 47%;
-    --accenthsldark: 144, 83%, 37%;
-    border: 5px solid hsla(var(--accenthsldark), 0.7);
-    /* Text color */
-    color: hsla(var(--accenthsldark), 0.7);
-    background: hsla(var(--accenthsl), 0.2);
-}
-
-.beurk {
-    --accenthsl: 216, 83%, 47%;
-    --accenthsldark: 216, 83%, 37%;
-    border: 5px solid hsla(var(--accenthsldark), 0.7);
-    /* Text color */
-    color: hsla(var(--accenthsldark), 0.7);
-    background: hsla(var(--accenthsl), 0.2);
-}
-
-.résultat {
-    --accenthsl: 288, 83%, 47%;
-    --accenthsldark: 288, 83%, 37%;
-    border: 5px solid hsla(var(--accenthsldark), 0.7);
-    /* Text color */
-    color: hsla(var(--accenthsldark), 0.7);
-    background: hsla(var(--accenthsl), 0.2);
-    width: 80%;
+.box-title {
+    color: inherit;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .tag {
@@ -108,64 +68,4 @@ body {
     font-weight: bold;
     /* Text color */
     color: inherit;
-}
-
-.box-title {
-    /* Remove default margin from the paragraph */
-    margin: 0;
-    /* Text color */
-    color: inherit;
-    /* Font size */
-    font-size: 22px;
-    /* Font weight */
-    font-weight: bold;
-}
-
-.pizza-block {
-    padding-left: 40px;
-    text-align: left;
-    color: #000;
-}
-
-.pizza-name {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    font-weight: bold;
-}
-
-.pizza-description {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 32px;
-    line-height: 0.5em;
-}
-
-.viande {
-    background-color: #cc5d75;
-    color: #ffffff;
-}
-
-.légume {
-    background-color: #5cc563;
-    color: #ffffff;
-}
-
-.poisson {
-    background-color: #755dd2;
-    color: #ffffff;
-}
-
-.fromage {
-    background-color: #d2c66d;
-    color: #ffffff;
-}
-
-.calorie {
-    background-color: #cf69d9;
-    color: #ffffff;
-}
-
-.assaisonnement {
-    background-color: #888888;
-    color: #ffffff;
 }

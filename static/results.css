@@ -1,0 +1,14 @@
+.pizza-block {
+    padding-left: 40px;
+    text-align: left;
+    color: #000;
+}
+
+.pizza-name {
+    font-weight: bold;
+}
+
+.pizza-description {
+    padding-left: 30px;
+    line-height: 0.5em;
+}

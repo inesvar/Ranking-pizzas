@@ -1,0 +1,48 @@
+
+#with {
+    --accenthsl: 0, 83%, 47%;
+    --accenthsldark: 0, 83%, 37%;
+    border-color: hsla(var(--accenthsldark), 0.7);
+    color: hsla(var(--accenthsldark), 0.7);
+    background: hsla(var(--accenthsl), 0.2);
+}
+
+#good {
+    --accenthsl: 72, 83%, 47%;
+    --accenthsldark: 72, 83%, 37%;
+    border-color: hsla(var(--accenthsldark), 0.7);
+    color: hsla(var(--accenthsldark), 0.7);
+    background: hsla(var(--accenthsl), 0.2);
+}
+
+#bad {
+    --accenthsl: 144, 83%, 47%;
+    --accenthsldark: 144, 83%, 37%;
+    border-color: hsla(var(--accenthsldark), 0.7);
+    color: hsla(var(--accenthsldark), 0.7);
+    background: hsla(var(--accenthsl), 0.2);
+}
+
+#without {
+    --accenthsl: 216, 83%, 47%;
+    --accenthsldark: 216, 83%, 37%;
+    border-color: hsla(var(--accenthsldark), 0.7);
+    color: hsla(var(--accenthsldark), 0.7);
+    background: hsla(var(--accenthsl), 0.2);
+}
+
+#results {
+    --accenthsl: 288, 83%, 47%;
+    --accenthsldark: 288, 83%, 37%;
+    border-color: hsla(var(--accenthsldark), 0.7);
+    color: hsla(var(--accenthsldark), 0.7);
+    background: hsla(var(--accenthsl), 0.2);
+}
+
+#ingredients {
+    --accenthsl: 0, 0%, 47%;
+    --accenthsldark: 0, 0%, 37%;
+    border-color: hsla(var(--accenthsldark), 0.7);
+    color: hsla(var(--accenthsldark), 0.7);
+    background: hsla(var(--accenthsl), 0.2);
+}

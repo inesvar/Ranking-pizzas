@@ -4,36 +4,47 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet"
+            href="{{ url_for('static', filename='ingredient_tag_colors.css') }}">
+        <link rel="stylesheet"
+            href="{{ url_for('static', filename='box_colors.css') }}">
+        <link rel="stylesheet"
+            href="{{ url_for('static', filename='results.css') }}">
+        <link rel="stylesheet"
             href="{{ url_for('static', filename='style.css') }}">
         <script defer
             src="{{ url_for('static', filename='script.js') }}"></script>
 
         <title>Minimal HTML Page</title>
     </head>
-    <body><div class="container">
-            <div class="box beurk">
-                <p class="box-title">beurk</p>
+    <body>
+        <div class="main-container">
+            <div class="qualifier-container">
+                <div id="without" class="box">
+                    <p class="box-title">Without</p>
+                </div>
+                <div id="bad" class="box">
+                    <p class="box-title">Bad</p>
+                </div>
+                <div id="good" class="box">
+                    <p class="box-title">Good</p>
+                </div>
+                <div id="with" class="box">
+                    <p class="box-title">With</p>
+                </div>
             </div>
-            <div class="box pabon">
-                <p class="box-title">pabon</p>
-            </div>
-            <div class="box bon">
-                <p class="box-title">bon</p>
-            </div>
-            <div class="box miam">
-                <p class="box-title">miam</p>
+            <div id="results" class="box">
+                <p class="box-title">Results</p>
+                <div id="pizza-container"></div>
             </div>
         </div>
-        <div class="ingredients-container">
-            {% for ingredient, classe in ingredients.items() %}
-            <div class="draggable tag {{classe}}">
+        <div id="ingredients" class="secondary-container box">
+            <p class="box-title">Ingredients</p>
+            {% for ingredient, qualifier in ingredients.items() %}
+            <div class="draggable tag {{qualifier}}">
                 <p class="tag-text">{{ingredient}}</p>
             </div>
             {% endfor %}
         </div>
-        <div class="box résultat">
-            <p class="box-title">pizzas</p>
-            <div id="pizza-container"></div>
-        </div>
+
     </body>
 </html>
