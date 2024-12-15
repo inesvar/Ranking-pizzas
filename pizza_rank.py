@@ -70,11 +70,11 @@ class PizzaRank:
             for ingredient in ingredients
         }
         print("qualifiers of ingredients", self.qualifier_of_ingredient)
-        scores = [
-            pizza.get_score(self.qualifier_of_ingredient) for pizza in self.pizzas
+        negative_scores = [
+            -pizza.get_score(self.qualifier_of_ingredient) for pizza in self.pizzas
         ]
-        order = np.argsort(scores)[::-1]
-        self.ranking = [self.pizzas[i].to_string() for i in order]
+        descending_order = np.argsort(negative_scores)
+        self.ranking = [self.pizzas[i].to_string() for i in descending_order]
 
         [print(i[0], end=" ") for i in self.ranking]
         print("\n\n\n")
