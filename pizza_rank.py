@@ -1,18 +1,6 @@
 from pizza import Pizza, RED, BOLD, RESET
-from ingredients import tagged_ingredients
 import numpy as np
-
-
-def is_known_ingredient(name: str) -> bool:
-    if name in tagged_ingredients.keys():
-        return True
-    else:
-        print(
-            RED + BOLD + "/!\ ",
-            name,
-            "n'est pas un ingrédient connu" + RESET,
-        )
-        return False
+from json import load
 
 
 def default_pizza_parser(file) -> Pizza:
@@ -30,21 +18,33 @@ def default_pizza_parser(file) -> Pizza:
 
 
 class PizzaRank:
-    def __init__(self, filename="pizzas.txt", parse_pizza_info=default_pizza_parser):
+    def __init__(
+        self,
+        pizzas_info_filename="pizzas.txt",
+        parse_pizza_info=default_pizza_parser,
+        ingredients_info_filename="ingredients.json",
+    ):
         self.pizzas = []
-        with open(filename) as file:
-            pizza = parse_pizza_info(file)
+        with open(pizzas_info_filename) as pizzas_file:
+            pizza = parse_pizza_info(pizzas_file)
             while pizza:
                 self.pizzas.append(pizza)
-                pizza = parse_pizza_info(file)
+                pizza = parse_pizza_info(pizzas_file)
         self.ranking = map(lambda pizza: pizza.to_string(), self.pizzas)
         self.qualifier_of_ingredient = {}
         self.tagged_ingredients = {}
+        with open(ingredients_info_filename) as ingredients_file:
+            tagged_ingredients = load(ingredients_file)
         for p in self.pizzas:
             for i in p.ingredients:
-                if is_known_ingredient(i):
+                if i in tagged_ingredients.keys():
                     self.tagged_ingredients[i] = tagged_ingredients[i]
                 else:
+                    print(
+                        RED + BOLD + "/!\ ",
+                        i,
+                        "n'est pas un ingrédient connu" + RESET,
+                    )
                     self.tagged_ingredients[i] = "inconnu"
 
     def get_best_pizzas(

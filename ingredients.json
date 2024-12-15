@@ -1,4 +1,4 @@
-tagged_ingredients = {
+{
     "artichaut": "légume",
     "boeuf haché": "viande",
     "champignon": "légume",
@@ -17,7 +17,6 @@ tagged_ingredients = {
     "oignon": "légume",
     "oignon confit": "légume",
     "olive": "légume",
-    "poivron": "légume",
     "pomme de terre": "calorie",
     "poulet": "viande",
     "reblochon": "fromage",
@@ -70,5 +69,5 @@ tagged_ingredients = {
     "poireau": "légume",
     "saint-jacques": "poisson",
     "fromage de chèvre": "fromage",
-    "taleggio": "fromage",
+    "taleggio": "fromage"
 }
