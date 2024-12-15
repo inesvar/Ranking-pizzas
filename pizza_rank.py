@@ -35,8 +35,13 @@ class PizzaRank:
         self.tagged_ingredients = {}
         with open(ingredients_info_filename) as ingredients_file:
             tagged_ingredients = load(ingredients_file)
+        ingredient_occurences = {}
         for p in self.pizzas:
             for i in p.ingredients:
+                if i in ingredient_occurences:
+                    ingredient_occurences[i] += 1
+                else:
+                    ingredient_occurences[i] = 0
                 if i in tagged_ingredients.keys():
                     self.tagged_ingredients[i] = tagged_ingredients[i]
                 else:
@@ -46,6 +51,14 @@ class PizzaRank:
                         "n'est pas un ingrédient connu" + RESET,
                     )
                     self.tagged_ingredients[i] = "inconnu"
+        self.tagged_ingredients = dict(
+            {
+                k: self.tagged_ingredients[k]
+                for (k, _) in sorted(
+                    ingredient_occurences.items(), key=lambda item: -item[1]
+                )
+            }
+        )
 
     def get_best_pizzas(
         self, ingredients_of_qualifier: dict[str, list[str]]
