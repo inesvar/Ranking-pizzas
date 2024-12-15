@@ -24,11 +24,13 @@
                 <p class="box-title">miam</p>
             </div>
         </div>
-        {% for ingredient, classe in ingredients.items() %}
-        <div class="draggable tag {{classe}}">
-            <p class="tag-text">{{ingredient}}</p>
+        <div class="ingredients-container">
+            {% for ingredient, classe in ingredients.items() %}
+            <div class="draggable tag {{classe}}">
+                <p class="tag-text">{{ingredient}}</p>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
         <div class="box résultat">
             <p class="box-title">pizzas</p>
             <div id="pizza-container"></div>

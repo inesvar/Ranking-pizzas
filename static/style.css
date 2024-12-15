@@ -2,10 +2,8 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0px;
     text-align: center;
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    column-gap: 20px;
 }
 
 .container {
@@ -16,11 +14,19 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
     width: 80%;
-    height: 55%;
+    height: 50vh;
+}
+
+.ingredients-container {
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
+    padding: 0px;
+    width: 20vh;
 }
 
 .box {
-    padding-top: 20px;
+    padding: 20px;
     /* height: 100%; */
     border-radius: 50px;
     /* TODO: uncomment this in the v2 */
