@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-    flex: 4;
+    flex: 3;
 }
 
 .ingredient-box {
@@ -26,7 +26,6 @@ body {
     justify-content: center;
     align-content: flex-start;
     height: fit-content;
-    min-height: 50vh;
     padding: 10px 5px;
     /* top/bottom right/left */
 }
@@ -42,6 +41,7 @@ body {
     border-radius: 50px;
     border: 5px solid;
     flex: 1;
+    min-height: 45vh;
 }
 
 .box-title {

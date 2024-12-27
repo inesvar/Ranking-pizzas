@@ -40,7 +40,7 @@
         <div id="ingredients" class="box ingredient-box">
             <p class="box-title">Ingredients</p>
             {% for ingredient, qualifier in ingredients.items() %}
-            <div class="draggable tag {{qualifier}}">
+            <div id="{{ingredient}}" class="tag {{qualifier}}" draggable="true">
                 <p class="tag-text">{{ingredient}}</p>
             </div>
             {% endfor %}
