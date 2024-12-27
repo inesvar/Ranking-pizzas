@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,21 +14,21 @@
         <script defer
             src="{{ url_for('static', filename='script.js') }}"></script>
 
-        <title>Minimal HTML Page</title>
+        <title>Choisis ta pizza</title>
     </head>
     <body>
         <div class="main-container">
             <div class="qualifier-container">
-                <div id="without" class="box">
+                <div id="without" class="box ingredient-box">
                     <p class="box-title">Without</p>
                 </div>
-                <div id="bad" class="box">
+                <div id="bad" class="box ingredient-box">
                     <p class="box-title">Bad</p>
                 </div>
-                <div id="good" class="box">
+                <div id="good" class="box ingredient-box">
                     <p class="box-title">Good</p>
                 </div>
-                <div id="with" class="box">
+                <div id="with" class="box ingredient-box">
                     <p class="box-title">With</p>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <div id="pizza-container"></div>
             </div>
         </div>
-        <div id="ingredients" class="secondary-container box">
+        <div id="ingredients" class="box ingredient-box">
             <p class="box-title">Ingredients</p>
             {% for ingredient, qualifier in ingredients.items() %}
             <div class="draggable tag {{qualifier}}">

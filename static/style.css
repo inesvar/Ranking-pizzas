@@ -17,22 +17,25 @@ body {
     flex: 4;
 }
 
-.secondary-container {
+.ingredient-box {
     display: flex;
     flex-direction: row;
     column-gap: 5px;
     row-gap: 5px;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: flex-start;
     height: fit-content;
-    padding: 10px 5px; /* top/bottom right/left */
+    min-height: 50vh;
+    padding: 10px 5px;
+    /* top/bottom right/left */
 }
 
 .qualifier-container {
     display: flex;
     flex-direction: row;
     column-gap: 20px;
-    height: 50vh;
+    height: fit-content;
 }
 
 .box {
@@ -49,11 +52,11 @@ body {
 }
 
 .tag {
-    width: fit-content;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.05s; /* snap shouldn't be instantaneous */
+    transition: 0.05s;
+    /* snap shouldn't be instantaneous */
 }
 
 .tag-text {
