@@ -47,7 +47,7 @@ class PizzaRank:
                     self.tagged_ingredients[i] = tagged_ingredients[i]
                 else:
                     warn("/!\ ", i, "n'est pas un ingrédient connu")
-                    self.tagged_ingredients[i] = "inconnu"
+                    self.tagged_ingredients[i] = ""
         self.tagged_ingredients = dict(
             {
                 k: self.tagged_ingredients[k]
