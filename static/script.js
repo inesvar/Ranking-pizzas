@@ -13,6 +13,7 @@ function dropHandler(ev) {
     ev.preventDefault();
     const data = ev.dataTransfer.getData("text/plain");
     ev.currentTarget.appendChild(document.getElementById(data));
+    computeBestPizza();
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -29,11 +30,11 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function computeBestPizza() {
-    // dict [0, 4] -> array of strings
-    const anchorPointsTagsNames = {};
-
-    for (let anchorId in anchorPointsTags) {
-        anchorPointsTagsNames[anchorId] = getNames(anchorPointsTags[anchorId]);
+    const criteria = {};
+    const ingredientBoxes = document.getElementsByClassName("ingredient-box");
+    for (let i = 0; i < ingredientBoxes.length; i++) {
+        const tags = ingredientBoxes[i].getElementsByClassName("tag");
+        criteria[i] = Array.from(tags, tag => tag.id);
     }
 
     fetch('/receive_data', {
@@ -41,7 +42,7 @@ function computeBestPizza() {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(anchorPointsTagsNames),
+        body: JSON.stringify(criteria),
     })
         .then(response => response.json())
         .then(data => {
@@ -57,16 +58,14 @@ function computeBestPizza() {
 
                 const pizzaNameElement = document.createElement("p");
                 pizzaNameElement.className = "pizza-name";
+                pizzaNameElement.innerText = `#${i + 1} ${data["message"][i][0]}`;
 
                 const pizzaDescriptionElement = document.createElement("p");
                 pizzaDescriptionElement.className = "pizza-description";
-
-                pizzaNameElement.innerText = `#${i + 1} ${data["message"][i][0]}`;
                 pizzaDescriptionElement.innerText = data["message"][i][1];
 
                 pizzaBlock.appendChild(pizzaNameElement);
                 pizzaBlock.appendChild(pizzaDescriptionElement);
-
                 pizzaContainer.appendChild(pizzaBlock);
             }
         })
