@@ -11,8 +11,16 @@ function dragoverHandler(ev) {
 
 function dropHandler(ev) {
     ev.preventDefault();
-    const data = ev.dataTransfer.getData("text/plain");
-    ev.currentTarget.appendChild(document.getElementById(data));
+    const id = ev.dataTransfer.getData("text/plain");
+    const element = document.getElementById(id);
+    if (element.classList.contains("tag")) {
+        ev.currentTarget.appendChild(element);
+    } else if (element.classList.contains("mastertag")) {
+        const tags = Array.from(document.getElementsByClassName(element.getAttribute("data-qualifier").concat(" tag")));
+        for (let i = 0; i < tags.length; i++) {
+            ev.currentTarget.appendChild(tags[i]);
+        }
+    }
     sortIngredientTags();
     computeBestPizza();
 }
@@ -21,7 +29,7 @@ window.addEventListener("DOMContentLoaded", () => {
     sortIngredientTags();
     computeBestPizza();
 
-    const tags = document.getElementsByClassName("tag");
+    const tags = document.querySelectorAll(".tag, .mastertag");
     for (let i = 0; i < tags.length; i++) {
         tags[i].addEventListener("dragstart", dragstartHandler);
     }

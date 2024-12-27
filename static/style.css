@@ -8,13 +8,14 @@ body {
     column-gap: 20px;
     user-select: none;
     white-space: nowrap;
+    font-size: large;
 }
 
 .main-container {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-    flex: 3;
+    flex: 2.5;
 }
 
 .ingredient-box {
@@ -45,25 +46,33 @@ body {
 }
 
 .box-title {
-    color: inherit;
-    font-size: 22px;
+    font-size: x-large;
     font-weight: bold;
     flex-basis: 100%;
+}
+
+.tag,
+.mastertag {
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.05s;
+    /* snap shouldn't be instantaneous */
 }
 
 .tag {
     padding: 10px;
     border-radius: 10px;
-    cursor: pointer;
-    transition: 0.05s;
-    /* snap shouldn't be instantaneous */
+    font-size: medium;
+}
+
+.mastertag {
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
 }
 
 .tag-text {
     /* there's default margin on the top and bottom,
      we use padding on the 4 sides instead */
     margin: 0;
-    font-size: 14px;
-    font-weight: bold;
-    color: inherit;
 }
