@@ -16,7 +16,7 @@ function dropHandler(ev) {
     if (element.classList.contains("tag")) {
         ev.currentTarget.appendChild(element);
     } else if (element.classList.contains("mastertag")) {
-        const tags = Array.from(document.getElementsByClassName(element.getAttribute("data-qualifier").concat(" tag")));
+        const tags = Array.from(document.getElementsByClassName(element.getAttribute("data-foodtype").concat(" tag")));
         for (let i = 0; i < tags.length; i++) {
             ev.currentTarget.appendChild(tags[i]);
         }
@@ -51,7 +51,7 @@ function sortIngredientTags() {
 }
 
 function ingredientSort(a, b) {
-    const firstSort = a.getAttribute("data-qualifier").localeCompare(b.getAttribute("data-qualifier"));
+    const firstSort = a.getAttribute("data-foodtype").localeCompare(b.getAttribute("data-foodtype"));
     if (firstSort !== 0) {
         return -firstSort;
     }
