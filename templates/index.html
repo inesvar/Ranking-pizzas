@@ -39,21 +39,23 @@
         </div>
         <div id="ingredients" class="box ingredient-box">
             <p class="box-title">Ingredients</p>
-            <div id="catégorie-viande" class="mastertag viande"
-                draggable="true" data-foodtype="viande">
-                <p class="tag-text">viande</p>
-            </div>
-            <div id="catégorie-poisson" class="mastertag poisson"
-                draggable="true" data-foodtype="poisson">
-                <p class="tag-text">poisson</p>
-            </div>
-            <div id="catégorie-légume" class="mastertag légume"
-                draggable="true" data-foodtype="légume">
-                <p class="tag-text">légume</p>
-            </div>
-            <div id="catégorie-fromage" class="mastertag fromage"
-                draggable="true" data-foodtype="fromage">
-                <p class="tag-text">fromage</p>
+            <div class="ingredient-box">
+                <div id="catégorie-viande" class="mastertag viande"
+                    draggable="true" data-foodtype="viande">
+                    <p class="tag-text">viande</p>
+                </div>
+                <div id="catégorie-poisson" class="mastertag poisson"
+                    draggable="true" data-foodtype="poisson">
+                    <p class="tag-text">poisson</p>
+                </div>
+                <div id="catégorie-légume" class="mastertag légume"
+                    draggable="true" data-foodtype="légume">
+                    <p class="tag-text">légume</p>
+                </div>
+                <div id="catégorie-fromage" class="mastertag fromage"
+                    draggable="true" data-foodtype="fromage">
+                    <p class="tag-text">fromage</p>
+                </div>
             </div>
             {% for ingredient, foodtype in ingredients.items() %}
             <div id="{{ingredient}}" class="tag {{foodtype}}" draggable="true"
