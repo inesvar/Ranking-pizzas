@@ -51,6 +51,19 @@ body {
     flex-basis: 100%;
 }
 
+.mastertag-box {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    row-gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    height: fit-content;
+    padding: 10px 5px;
+    flex-basis: 100%;
+}
+
 .tag,
 .mastertag {
     font-weight: bold;
