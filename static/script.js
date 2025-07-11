@@ -25,9 +25,53 @@ function dropHandler(ev) {
     computeBestPizza();
 }
 
+function loadPreferencesFromJson(jsonFilename = "/static/default.json") {
+    fetch(jsonFilename)
+        .then(response => response.json())
+        .then(data => {
+            for (const [ingredient, qualifier] of Object.entries(data)) {
+                const element = document.getElementById(ingredient);
+                const box = document.getElementById(qualifier);
+                if (element.classList.contains("tag")) {
+                    box.appendChild(element);
+                } else if (element.classList.contains("mastertag")) {
+                    const tags = Array.from(document.getElementsByClassName(element.getAttribute("data-foodtype").concat(" tag")));
+                    for (let i = 0; i < tags.length; i++) {
+                        box.appendChild(tags[i]);
+                    }
+                }
+            }
+            computeBestPizza();
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
+}
+
+function savePreferencesToJson(jsonFilename = "/static/newProfile.json") {
+    const criteria = {};
+    const ingredientBoxes = document.querySelectorAll(".qualifier-container .ingredient-box");
+    for (const qualifier of ingredientBoxes) {
+        const ingredients = qualifier.getElementsByClassName("tag");
+        for (const ingredient of ingredients) {
+            criteria[ingredient.id] = qualifier.id;
+        }
+    }
+
+    fetch('/save_file', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ "filename": jsonFilename, "content": criteria }),
+    })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
 window.addEventListener("DOMContentLoaded", () => {
     sortIngredientTags();
-    computeBestPizza();
+    // computeBestPizza();
+    loadPreferencesFromJson();
 
     const tags = document.querySelectorAll(".tag, .mastertag");
     for (let i = 0; i < tags.length; i++) {
