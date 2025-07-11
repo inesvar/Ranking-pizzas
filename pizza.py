@@ -43,8 +43,8 @@ class Pizza:
         self.name = name
         self.ingredients = ingredients
 
-    def to_string(self) -> str:
-        return (self.name, ", ".join(self.ingredients))
+    def to_string(self, qualifier_of_ingredient) -> tuple[str, str, int]:
+        return (self.name, ", ".join(self.ingredients), self.get_score(qualifier_of_ingredient))
 
     def contains(self, name: str) -> bool:
         return name in self.ingredients

@@ -59,7 +59,7 @@ class PizzaRank:
 
     def get_best_pizzas(
         self, ingredients_of_qualifier: dict[str, list[str]]
-    ) -> list[tuple[str, str]]:
+    ) -> list[tuple[str, str, int]]:
         self.qualifier_of_ingredient = {
             ingredient: qualifier
             for qualifier, ingredients in ingredients_of_qualifier.items()
@@ -71,7 +71,7 @@ class PizzaRank:
             -pizza.get_score(self.qualifier_of_ingredient) for pizza in self.pizzas
         ]
         descending_order = np.argsort(negative_scores)
-        self.ranking = [self.pizzas[i].to_string() for i in descending_order]
+        self.ranking = [self.pizzas[i].to_string(self.qualifier_of_ingredient) for i in descending_order]
 
         [debug(i[0], end=" ") for i in self.ranking]
         debug("\n\n\n")

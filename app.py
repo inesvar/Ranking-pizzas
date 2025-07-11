@@ -23,5 +23,5 @@ def receive_data():
 
 
 if __name__ == "__main__":
-    setLogLevel(LogLevels.INFO)
+    setLogLevel(LogLevels.DEBUG)
     app.run(debug=True)
