@@ -134,12 +134,28 @@ function computeBestPizza() {
                 pizzaNameElement.className = "pizza-name";
                 pizzaNameElement.innerText = `${data["message"][i][2]} ${data["message"][i][0]}`;
 
-                const pizzaDescriptionElement = document.createElement("p");
-                pizzaDescriptionElement.className = "pizza-description";
-                pizzaDescriptionElement.innerText = data["message"][i][1];
+                const pizzaIngredientBox = document.createElement("div");
+                pizzaIngredientBox.className = "static-ingredient-box";
+                
+                for (const ingredientName of data["message"][i][1]) {
+                    const originalIngredient = document.getElementById(ingredientName);
+                    const originalType = originalIngredient.getAttribute("data-foodtype");
+                    const ingredientElement = document.createElement("div");
+                    
+                    ingredientElement.setAttribute("data-foodtype", originalType);
+                    ingredientElement.className = originalType;
+                    ingredientElement.classList.add("static-tag");
+                    
+                    const child = document.createElement("p");
+                    child.className = "tag-text";
+                    child.innerText = ingredientName;
+                    
+                    ingredientElement.appendChild(child);
+                    pizzaIngredientBox.appendChild(ingredientElement);
+                }
 
                 pizzaBlock.appendChild(pizzaNameElement);
-                pizzaBlock.appendChild(pizzaDescriptionElement);
+                pizzaBlock.append(pizzaIngredientBox);
                 pizzaContainer.appendChild(pizzaBlock);
             }
         })

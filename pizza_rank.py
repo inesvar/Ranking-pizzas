@@ -59,7 +59,7 @@ class PizzaRank:
 
     def get_best_pizzas(
         self, ingredients_of_qualifier: dict[str, list[str]]
-    ) -> list[tuple[str, str, int]]:
+    ) -> list[tuple[str, list[str], int]]:
         self.qualifier_of_ingredient = {
             ingredient: qualifier
             for qualifier, ingredients in ingredients_of_qualifier.items()

@@ -31,6 +31,16 @@ body {
     /* top/bottom right/left */
 }
 
+.static-ingredient-box {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    row-gap: 5px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    height: fit-content;
+}
+
 .qualifier-container {
     display: flex;
     flex-direction: row;
@@ -64,6 +74,10 @@ body {
     flex-basis: 100%;
 }
 
+.static-tag {
+    font-weight: bold;
+}
+
 .tag,
 .mastertag {
     font-weight: bold;
@@ -72,7 +86,8 @@ body {
     /* snap shouldn't be instantaneous */
 }
 
-.tag {
+.tag,
+.static-tag {
     padding: 10px;
     border-radius: 10px;
     font-size: medium;
