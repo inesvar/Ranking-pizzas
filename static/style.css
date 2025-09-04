@@ -59,6 +59,8 @@ body {
     font-size: x-large;
     font-weight: bold;
     flex-basis: 100%;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
 }
 
 .mastertag-box {
