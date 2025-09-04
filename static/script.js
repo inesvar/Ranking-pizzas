@@ -85,13 +85,21 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-function sortIngredientTags() {
+function sortIngredientTags(tagClass = "tag") {
     const box = document.getElementById("ingredients");
-    const tags = Array.from(box.getElementsByClassName("tag"));
+    const tags = Array.from(box.getElementsByClassName(tagClass));
 
     tags.sort((a, b) => { return ingredientSort(a, b); });
 
     tags.forEach(tag => box.appendChild(tag));
+}
+
+function sortIngredientTagsIn(element, tagClass = "tag") {
+    const tags = Array.from(element.getElementsByClassName(tagClass));
+
+    tags.sort((a, b) => { return ingredientSort(a, b); });
+
+    tags.forEach(tag => element.appendChild(tag));
 }
 
 function ingredientSort(a, b) {
@@ -153,6 +161,7 @@ function computeBestPizza() {
                     ingredientElement.appendChild(child);
                     pizzaIngredientBox.appendChild(ingredientElement);
                 }
+                sortIngredientTagsIn(pizzaIngredientBox, "static-tag");
 
                 pizzaBlock.appendChild(pizzaNameElement);
                 pizzaBlock.append(pizzaIngredientBox);

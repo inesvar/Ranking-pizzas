@@ -7,3 +7,8 @@
 .pizza-name {
     font-weight: bold;
 }
+
+#pizza-container {
+    padding: 10px 5px;
+    /* top/bottom right/left */
+}
