@@ -27,7 +27,7 @@ def receive_data():
 def save_file():
     data = request.json
     debug(f"Saving to file {data["filename"]}:", data["content"])
-    with open("." + data["filename"], "w", encoding="utf-8") as f:
+    with open("static/dumps/" + data["filename"], "w", encoding="utf-8") as f:
         json.dump(data["content"], f)
     result = {"status": "success"}
     return jsonify(result)

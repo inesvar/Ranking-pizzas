@@ -25,8 +25,8 @@ function dropHandler(ev) {
     computeBestPizza();
 }
 
-function loadPreferencesFromJson(jsonFilename = "/static/default.json") {
-    fetch(jsonFilename)
+function loadPreferencesFromJson(jsonFilename = "default.json") {
+    fetch("/static/dumps/" + jsonFilename)
         .then(response => response.json())
         .then(data => {
             for (const [ingredient, qualifier] of Object.entries(data)) {
@@ -46,7 +46,7 @@ function loadPreferencesFromJson(jsonFilename = "/static/default.json") {
         .catch(error => console.error('Error fetching JSON:', error));
 }
 
-function savePreferencesToJson(jsonFilename = "/static/newProfile.json") {
+function savePreferencesToJson(jsonFilename = "newProfile.json") {
     const criteria = {};
     const ingredientBoxes = document.querySelectorAll(".qualifier-container .ingredient-box");
     for (const qualifier of ingredientBoxes) {
