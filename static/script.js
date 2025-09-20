@@ -100,10 +100,26 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     const loadButton = document.getElementById("loadButton");
-    loadButton.addEventListener("click", (_event) => { loadPreferencesFromJson(); });
+    loadButton.addEventListener("click", (_event) => {
+        let params = new URLSearchParams(document.location.search);
+        let name = params.get("file");
+        if (name == null) {
+            loadPreferencesFromJson();
+        } else {
+            loadPreferencesFromJson(name);
+        }
+    });
 
     const saveButton = document.getElementById("saveButton");
-    saveButton.addEventListener("click", (_event) => {savePreferencesToJson(); });
+    saveButton.addEventListener("click", (_event) => {
+        let params = new URLSearchParams(document.location.search);
+        let name = params.get("file");
+        if (name == null) {
+            savePreferencesToJson();
+        } else {
+            savePreferencesToJson(name);
+        }
+    });
 });
 
 function sortIngredientTags(tagClass = "tag") {
