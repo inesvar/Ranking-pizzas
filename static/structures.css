@@ -1,0 +1,22 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    user-select: none; /* can't select text */
+}
+
+.box-horizontal-flex {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.box-vertical-flex {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.grid-2x2 {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap: 2% 2%;
+}

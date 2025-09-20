@@ -1,4 +1,4 @@
-/* default tag appearance */
+/* tag appearance */
 .tag,
 .static-tag {
     padding: 10px;
@@ -6,13 +6,13 @@
     font-size: small;
 }
 
-/* default master tag appearance */
+/* mastertag appearance */
 .mastertag {
     padding: 15px;
     border-radius: 15px;
 }
 
-/* dynamic tags */
+/* dynamic properties */
 .tag,
 .mastertag {
     cursor: pointer;

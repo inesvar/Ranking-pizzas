@@ -1,0 +1,42 @@
+/* box appearance */
+.box {
+    border-radius: 50px;
+    border: 5px solid;
+    min-height: 20vh;
+}
+
+/* box title appearance */
+.box-title {
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    flex-basis: 100%;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
+/* tag box structure */
+.static-tag-box, .tag-box, .mastertag-box {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    row-gap: 5px;
+    align-content: flex-start;
+}
+
+/* tag box dynamic properties */
+.tag-box, .mastertag-box {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* tag box appearance */
+.tag-box {
+    padding: 15px;
+}
+
+/* mastertag box appearance */ 
+.mastertag-box {
+    padding: 10px;
+    flex-basis: 100%;
+}

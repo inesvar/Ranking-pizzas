@@ -48,7 +48,7 @@ function loadPreferencesFromJson(jsonFilename = "default.json") {
 
 function savePreferencesToJson(jsonFilename = "newProfile.json") {
     const criteria = {};
-    const ingredientBoxes = document.querySelectorAll("#qualifier-container .ingredient-box");
+    const ingredientBoxes = document.querySelectorAll("#qualifier-container .tag-box"); // descendant
     for (const qualifier of ingredientBoxes) {
         const ingredients = qualifier.getElementsByClassName("tag");
         for (const ingredient of ingredients) {
@@ -73,12 +73,12 @@ window.addEventListener("DOMContentLoaded", () => {
     // computeBestPizza();
     loadPreferencesFromJson();
 
-    const tags = document.querySelectorAll(".tag, .mastertag");
+    const tags = document.querySelectorAll(".tag, .mastertag"); // OR
     for (let i = 0; i < tags.length; i++) {
         tags[i].addEventListener("dragstart", dragstartHandler);
     }
 
-    const ingredientBoxes = document.getElementsByClassName("ingredient-box");
+    const ingredientBoxes = document.getElementsByClassName("tag-box");
     for (let i = 0; i < ingredientBoxes.length; i++) {
         ingredientBoxes[i].addEventListener("dragover", dragoverHandler);
         ingredientBoxes[i].addEventListener("drop", dropHandler);
@@ -113,7 +113,7 @@ function ingredientSort(a, b) {
 
 function computeBestPizza() {
     const criteria = {};
-    const ingredientBoxes = document.getElementsByClassName("ingredient-box");
+    const ingredientBoxes = document.getElementsByClassName("tag-box");
     for (let i = 0; i < ingredientBoxes.length; i++) {
         const tags = ingredientBoxes[i].getElementsByClassName("tag");
         criteria[i] = Array.from(tags, tag => tag.id);
@@ -143,7 +143,7 @@ function computeBestPizza() {
                 pizzaNameElement.innerText = `${data["message"][i][2]} ${data["message"][i][0]}`;
 
                 const pizzaIngredientBox = document.createElement("div");
-                pizzaIngredientBox.className = "static-ingredient-box";
+                pizzaIngredientBox.className = "static-tag-box";
                 
                 for (const ingredientName of data["message"][i][1]) {
                     const originalIngredient = document.getElementById(ingredientName);
