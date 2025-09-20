@@ -8,6 +8,7 @@ body {
     display: flex;
     flex-direction: row;
     column-gap: 20px;
+    justify-content: center;
 }
 
 .box-vertical-flex {
@@ -22,13 +23,25 @@ body {
     gap: 2% 2%;
 }
 
-#main-container {
+.top-sticky {
     position: sticky;
     top: 0;
     height: fit-content;
-    padding: 10px 0px 10px 10px;
+    width: 100%;
+    background-color: white;
+}
+
+#main-container {
+    padding: 15px 0px 15px 15px;
 }
 
 #secondary-container {
-    padding: 10px 10px 10px 0px;
+    align-items: center;
+    row-gap: 0px;
+    padding: 0px ;
+}
+
+#button-container {
+    padding: 15px 0px 20px;
+    mask: linear-gradient(rgba(0, 0, 0, 1) 90%,rgba(0, 0, 0, 0) 100%);
 }

@@ -46,3 +46,11 @@
     color: hsla(var(--accenthsldark), 0.7);
     background: hsla(var(--accenthsl), 0.2);
 }
+
+.button {
+    --accenthsl: 30, 80%, 60%;
+    --accenthsldark: 30, 80%, 37%;
+    border-color: hsla(var(--accenthsldark));
+    color: hsla(var(--accenthsldark));
+    background: hsla(var(--accenthsl));
+}
