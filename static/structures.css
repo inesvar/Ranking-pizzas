@@ -2,6 +2,7 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     user-select: none; /* can't select text */
     margin: 0;
+    visibility: hidden; /* initially hidden */
 }
 
 .box-horizontal-flex {

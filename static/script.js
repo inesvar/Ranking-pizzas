@@ -204,6 +204,8 @@ function computeBestPizza() {
                 pizzaBlock.append(pizzaIngredientBox);
                 pizzaContainer.appendChild(pizzaBlock);
             }
+
+            document.getElementsByTagName("body")[0].style.visibility = "visible";
         })
         .catch((error) => {
             console.error('Error:', error);
