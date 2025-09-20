@@ -1,8 +1,6 @@
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
-    padding: 8px;
-    margin: 0px;
     display: flex;
     flex-direction: row;
     column-gap: 20px;
@@ -35,7 +33,6 @@ body {
     column-gap: 5px;
     row-gap: 5px;
     align-content: flex-start;
-    height: fit-content;
 }
 
 .qualifier-container {
