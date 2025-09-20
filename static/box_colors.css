@@ -49,8 +49,16 @@
 
 .button {
     --accenthsl: 30, 80%, 60%;
-    --accenthsldark: 30, 80%, 37%;
+    --accenthsldark: 30, 80%, 40%;
     border-color: hsla(var(--accenthsldark));
     color: hsla(var(--accenthsldark));
     background: hsla(var(--accenthsl));
+}
+
+.button:hover {
+    --accenthsl: 30, 80%, 50%;
+    --accenthsldark: 30, 80%, 30%;
+    border-color: hsla(var(--accenthsldark));
+    color: hsla(var(--accenthsldark));
+    background: hsla(var(--accenthsl)); 
 }
