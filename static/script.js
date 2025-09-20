@@ -20,6 +20,11 @@ function dropHandler(ev) {
         for (let i = 0; i < tags.length; i++) {
             ev.currentTarget.appendChild(tags[i]);
         }
+    } else if (element.classList.contains("tag-box")) {
+        const boxTags = Array.from(element.getElementsByClassName("tag"));
+        for (const tag of boxTags) {
+            ev.currentTarget.appendChild(tag);
+        }
     }
     sortIngredientTags();
     computeBestPizza();
@@ -83,7 +88,7 @@ function savePreferencesToJson(jsonFilename = "newProfile.json") {
 window.addEventListener("DOMContentLoaded", () => {
     loadPreferencesFromJson();
 
-    const tags = document.querySelectorAll(".tag, .mastertag"); // OR
+    const tags = document.querySelectorAll(".tag, .mastertag, .tag-box"); // OR
     for (let i = 0; i < tags.length; i++) {
         tags[i].addEventListener("dragstart", dragstartHandler);
     }
@@ -154,20 +159,20 @@ function computeBestPizza() {
 
                 const pizzaIngredientBox = document.createElement("div");
                 pizzaIngredientBox.className = "static-tag-box";
-                
+
                 for (const ingredientName of data["message"][i][1]) {
                     const originalIngredient = document.getElementById(ingredientName);
                     const originalType = originalIngredient.getAttribute("data-foodtype");
                     const ingredientElement = document.createElement("div");
-                    
+
                     ingredientElement.setAttribute("data-foodtype", originalType);
                     ingredientElement.className = originalType;
                     ingredientElement.classList.add("static-tag");
-                    
+
                     const child = document.createElement("p");
                     child.className = "tag-text";
                     child.innerText = ingredientName;
-                    
+
                     ingredientElement.appendChild(child);
                     pizzaIngredientBox.appendChild(ingredientElement);
                 }
