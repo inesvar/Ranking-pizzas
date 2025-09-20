@@ -13,12 +13,17 @@
     color: #ffffff;
 }
 
-.fromage {
+.laitier {
     background-color: #d2c66d;
     color: #ffffff;
 }
 
+.base {
+    background-color: #ccc;
+    color: #555;
+}
+
 .assaisonnement {
-    background-color: #888888;
-    color: #ffffff;
+    background-color: #888;
+    color: #fff;
 }
