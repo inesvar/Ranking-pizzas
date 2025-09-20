@@ -48,7 +48,7 @@ function loadPreferencesFromJson(jsonFilename = "default.json") {
 
 function savePreferencesToJson(jsonFilename = "newProfile.json") {
     const criteria = {};
-    const ingredientBoxes = document.querySelectorAll(".qualifier-container .ingredient-box");
+    const ingredientBoxes = document.querySelectorAll("#qualifier-container .ingredient-box");
     for (const qualifier of ingredientBoxes) {
         const ingredients = qualifier.getElementsByClassName("tag");
         for (const ingredient of ingredients) {

@@ -1,3 +1,7 @@
+#results {
+    white-space: nowrap;
+}
+
 .pizza-block {
     padding-left: 40px;
     text-align: left;
