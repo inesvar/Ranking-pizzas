@@ -29,6 +29,17 @@ function loadPreferencesFromJson(jsonFilename = "default.json") {
     fetch("/static/dumps/" + jsonFilename)
         .then(response => response.json())
         .then(data => {
+            // empty qualifiers
+            const ingredientBox = document.getElementById("ingredients");
+            for (const qualifier of ["without", "bad", "good", "with"]) {
+                const box = document.getElementById(qualifier);
+                // using `Array.from` because we'll remove elements
+                const boxTags = Array.from(box.getElementsByClassName("tag"));
+                for (const tag of boxTags) {
+                    ingredientBox.appendChild(tag);
+                }
+            }
+            // add data from json
             for (const [ingredient, qualifier] of Object.entries(data)) {
                 const element = document.getElementById(ingredient);
                 const box = document.getElementById(qualifier);
@@ -41,6 +52,7 @@ function loadPreferencesFromJson(jsonFilename = "default.json") {
                     }
                 }
             }
+            sortIngredientTags();
             computeBestPizza();
         })
         .catch(error => console.error('Error fetching JSON:', error));
@@ -69,8 +81,6 @@ function savePreferencesToJson(jsonFilename = "newProfile.json") {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-    sortIngredientTags();
-    // computeBestPizza();
     loadPreferencesFromJson();
 
     const tags = document.querySelectorAll(".tag, .mastertag"); // OR
