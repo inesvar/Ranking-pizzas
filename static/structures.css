@@ -33,13 +33,13 @@ body {
 }
 
 #main-container {
-    padding: 15px 0px 15px 15px;
+    padding: 15px 0px 15px 15px; /* there's the secondary-container on the right */
 }
 
 #secondary-container {
     align-items: center;
     row-gap: 0px;
-    padding: 0px ;
+    padding: 0px 15px 15px 0px; /* there the button-container on the top and the main-container on the left */
 }
 
 #button-container {
