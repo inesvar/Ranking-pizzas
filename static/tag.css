@@ -25,4 +25,5 @@
     /* there's default margin on the top and bottom,
      we use padding on the 4 sides instead */
     margin: 0;
+    white-space: nowrap;
 }

@@ -1,6 +1,7 @@
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     user-select: none; /* can't select text */
+    margin: 0;
 }
 
 .box-horizontal-flex {
@@ -19,4 +20,15 @@ body {
     display: grid;
     grid-template-columns: 49% 49%;
     gap: 2% 2%;
+}
+
+#main-container {
+    position: sticky;
+    top: 0;
+    height: fit-content;
+    padding: 10px 0px 10px 10px;
+}
+
+#secondary-container {
+    padding: 10px 10px 10px 0px;
 }
