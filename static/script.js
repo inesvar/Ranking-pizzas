@@ -63,7 +63,7 @@ function loadPreferencesFromJson(jsonFilename = "default.json") {
         .catch(error => console.error('Error fetching JSON:', error));
 }
 
-function savePreferencesToJson(jsonFilename = "newProfile.json") {
+function savePreferencesToJson(jsonFilename = "default.json") {
     const criteria = {};
     const ingredientBoxes = document.querySelectorAll("#qualifier-container .tag-box"); // descendant
     for (const qualifier of ingredientBoxes) {
@@ -98,6 +98,12 @@ window.addEventListener("DOMContentLoaded", () => {
         ingredientBoxes[i].addEventListener("dragover", dragoverHandler);
         ingredientBoxes[i].addEventListener("drop", dropHandler);
     }
+
+    const loadButton = document.getElementById("loadButton");
+    loadButton.addEventListener("click", (_event) => { loadPreferencesFromJson(); });
+
+    const saveButton = document.getElementById("saveButton");
+    saveButton.addEventListener("click", (_event) => {savePreferencesToJson(); });
 });
 
 function sortIngredientTags(tagClass = "tag") {
