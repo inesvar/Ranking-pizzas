@@ -37,6 +37,6 @@
 
 /* mastertag box appearance */ 
 .mastertag-box {
-    padding: 10px;
+    padding-bottom: 10px;
     flex-basis: 100%;
 }

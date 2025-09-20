@@ -153,7 +153,7 @@ function computeBestPizza() {
                 const pizzaBlock = document.createElement("div");
                 pizzaBlock.className = "pizza-block";
 
-                const pizzaNameElement = document.createElement("p");
+                const pizzaNameElement = document.createElement("div");
                 pizzaNameElement.className = "pizza-name";
                 pizzaNameElement.innerText = `${data["message"][i][2]} ${data["message"][i][0]}`;
 
