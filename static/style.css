@@ -8,14 +8,12 @@ body {
     column-gap: 20px;
     user-select: none;
     white-space: nowrap;
-    font-size: large;
 }
 
 .main-container {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-    flex: 2.5;
 }
 
 .ingredient-box {
@@ -27,7 +25,7 @@ body {
     justify-content: center;
     align-content: flex-start;
     height: fit-content;
-    padding: 10px 5px;
+    padding: 10px 15px;
     /* top/bottom right/left */
 }
 
@@ -36,7 +34,6 @@ body {
     flex-direction: row;
     column-gap: 5px;
     row-gap: 5px;
-    flex-wrap: wrap;
     align-content: flex-start;
     height: fit-content;
 }
@@ -92,7 +89,7 @@ body {
 .static-tag {
     padding: 10px;
     border-radius: 10px;
-    font-size: medium;
+    font-size: small;
 }
 
 .mastertag {
