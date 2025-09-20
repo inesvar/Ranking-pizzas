@@ -1,0 +1,28 @@
+/* default tag appearance */
+.tag,
+.static-tag {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: small;
+}
+
+/* default master tag appearance */
+.mastertag {
+    padding: 15px;
+    border-radius: 15px;
+}
+
+/* dynamic tags */
+.tag,
+.mastertag {
+    cursor: pointer;
+    transition: 0.05s; /* snap shouldn't be instantaneous */
+}
+
+/* text */
+.tag-text {
+    font-weight: bold;
+    /* there's default margin on the top and bottom,
+     we use padding on the 4 sides instead */
+    margin: 0;
+}
