@@ -5,6 +5,10 @@ function dragstartHandler(ev) {
     ev.dataTransfer.setData("text/plain", ev.target.id);
 }
 
+function dragstartHandlerForPizzaIngredients(ev) {
+    ev.dataTransfer.setData("text/plain", ev.target.querySelector(".tag-text").innerText);
+}
+
 function dragoverHandler(ev) {
     ev.preventDefault();
 }
@@ -16,7 +20,7 @@ function dropHandler(ev) {
     if (element.classList.contains("tag")) {
         ev.currentTarget.appendChild(element);
     } else if (element.classList.contains("mastertag")) {
-        const tags = Array.from(document.getElementsByClassName(element.getAttribute("data-foodtype").concat(" tag")));
+        const tags = Array.from(document.querySelectorAll(`.tag-box .tag.${element.getAttribute("data-foodtype")}`));
         for (let i = 0; i < tags.length; i++) {
             ev.currentTarget.appendChild(tags[i]);
         }
@@ -184,8 +188,10 @@ function computeBestPizza() {
                     const ingredientElement = document.createElement("div");
 
                     ingredientElement.setAttribute("data-foodtype", originalType);
+                    ingredientElement.setAttribute("draggable", true);
                     ingredientElement.className = originalType;
-                    ingredientElement.classList.add("static-tag");
+                    ingredientElement.classList.add("tag");
+                    ingredientElement.addEventListener("dragstart", dragstartHandlerForPizzaIngredients);
 
                     const child = document.createElement("p");
                     child.className = "tag-text";
@@ -194,7 +200,7 @@ function computeBestPizza() {
                     ingredientElement.appendChild(child);
                     pizzaIngredientBox.appendChild(ingredientElement);
                 }
-                sortIngredientTagsIn(pizzaIngredientBox, "static-tag");
+                sortIngredientTagsIn(pizzaIngredientBox, "tag");
 
                 pizzaBlock.appendChild(pizzaNameElement);
                 pizzaBlock.append(pizzaIngredientBox);
