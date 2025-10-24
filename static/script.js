@@ -30,8 +30,8 @@ function dropHandler(ev) {
     computeBestPizza();
 }
 
-function loadPreferencesFromJson(jsonFilename = "default.json") {
-    fetch("/static/dumps/" + jsonFilename)
+function loadPreferencesFromJson(jsonFilename = "default") {
+    fetch("/static/dumps/" + jsonFilename + ".json")
         .then(response => response.json())
         .then(data => {
             // empty qualifiers
@@ -63,7 +63,7 @@ function loadPreferencesFromJson(jsonFilename = "default.json") {
         .catch(error => console.error('Error fetching JSON:', error));
 }
 
-function savePreferencesToJson(jsonFilename = "default.json") {
+function savePreferencesToJson(jsonFilename = "default") {
     const criteria = {};
     const ingredientBoxes = document.querySelectorAll("#qualifier-container .tag-box"); // descendant
     for (const qualifier of ingredientBoxes) {
@@ -78,7 +78,7 @@ function savePreferencesToJson(jsonFilename = "default.json") {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ "filename": jsonFilename, "content": criteria }),
+        body: JSON.stringify({ "filename": jsonFilename + ".json", "content": criteria }),
     })
         .catch((error) => {
             console.error('Error:', error);
@@ -102,10 +102,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const loadButton = document.getElementById("loadButton");
     loadButton.addEventListener("click", (_event) => {
         let params = new URLSearchParams(document.location.search);
-        let name = params.get("file");
-        if (name == null) {
-            loadPreferencesFromJson();
-        } else {
+        let name = prompt("filename:");
+        if (name != null) {
             loadPreferencesFromJson(name);
         }
     });
@@ -113,10 +111,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const saveButton = document.getElementById("saveButton");
     saveButton.addEventListener("click", (_event) => {
         let params = new URLSearchParams(document.location.search);
-        let name = params.get("file");
-        if (name == null) {
-            savePreferencesToJson();
-        } else {
+        let name = prompt("filename:");
+        if (name != null) {
             savePreferencesToJson(name);
         }
     });
