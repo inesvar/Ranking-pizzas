@@ -8,6 +8,7 @@ else
     source venv/bin/activate
     pip install -r requirements.txt
 fi
+firefox 127.0.0.1:5000 --kiosk&
 python app.py
 
 
