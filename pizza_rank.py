@@ -31,6 +31,7 @@ class PizzaRank:
             while pizza:
                 self.pizzas.append(pizza)
                 pizza = parse_pizza_info(pizzas_file)
+        np.random.shuffle(self.pizzas)
         self.ranking = map(lambda pizza: pizza.to_string(), self.pizzas)
         self.qualifier_of_ingredient = {}
         self.tagged_ingredients = {}
@@ -70,7 +71,7 @@ class PizzaRank:
         negative_scores = [
             -pizza.get_score(self.qualifier_of_ingredient) for pizza in self.pizzas
         ]
-        descending_order = np.argsort(negative_scores)
+        descending_order = np.argsort(negative_scores, stable=True)
         self.ranking = [self.pizzas[i].to_string(self.qualifier_of_ingredient) for i in descending_order]
 
         [debug(i[0], end=" ") for i in self.ranking]
